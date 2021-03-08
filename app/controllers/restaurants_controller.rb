@@ -17,17 +17,20 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.user  = current_user
     if @restaurant.save
-      redirect_to restaurant_path(@restaurant)
+      flash[:success] = "Thanks for adding your restaurant!"
+      redirect_to @restaurant
     else
       render :new
+      flash[:alert] = "Sorry, your restaurant is not saved!"
     end
   end
 
 
   def update
     @restaurant.update(restaurant_params)
-    redirect_to restaurant_path(@restaurant)
+    redirect_to @restaurant
   end
 
   def destroy
@@ -38,12 +41,16 @@ class RestaurantsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = Flat.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :cuisine)
+<<<<<<< HEAD
   end  
 >>>>>>> a684d223e63200749ad43338211c794d5692422c
+=======
+  end
+>>>>>>> 73d8e11438c5254be6371dc7459e196ded6910b4
 end
 
