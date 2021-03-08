@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_03_08_075621) do
-
+ActiveRecord::Schema.define(version: 2021_03_08_084852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customized_ingredients", force: :cascade do |t|
+    t.bigint "dish_ingredient_id", null: false
+    t.bigint "order_item_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_ingredient_id"], name: "index_customized_ingredients_on_dish_ingredient_id"
+    t.index ["order_item_id"], name: "index_customized_ingredients_on_order_item_id"
+  end
 
   create_table "dish_ingredients", force: :cascade do |t|
     t.integer "base_quantity"
@@ -50,6 +58,28 @@ ActiveRecord::Schema.define(version: 2021_03_08_075621) do
     t.index ["restaurant_id"], name: "index_ingredients_on_restaurant_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "dish_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_order_items_on_dish_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "date"
+    t.text "delivery_adress"
+    t.integer "eta"
+    t.integer "total_price"
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -73,14 +103,18 @@ ActiveRecord::Schema.define(version: 2021_03_08_075621) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
-
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "customized_ingredients", "dish_ingredients"
+  add_foreign_key "customized_ingredients", "order_items"
   add_foreign_key "dish_ingredients", "dishes"
   add_foreign_key "dish_ingredients", "ingredients"
   add_foreign_key "dishes", "restaurants"
   add_foreign_key "ingredients", "restaurants"
+  add_foreign_key "order_items", "dishes"
+  add_foreign_key "order_items", "orders"
+  add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "users"
 end
