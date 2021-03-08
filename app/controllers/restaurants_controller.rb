@@ -1,10 +1,9 @@
 class RestaurantsController < ApplicationController
-<<<<<<< HEAD
+  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+
   def index
     @restaurants = Restaurant.all
   end
-=======
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def show
     @restaurant = Restaurant.find(params[:id])
@@ -46,11 +45,6 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :cuisine)
-<<<<<<< HEAD
-  end  
->>>>>>> a684d223e63200749ad43338211c794d5692422c
-=======
   end
->>>>>>> 73d8e11438c5254be6371dc7459e196ded6910b4
 end
 
