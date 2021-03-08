@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_142336) do
+
+ActiveRecord::Schema.define(version: 2021_03_08_072329) do
 
 
   # These are extensions that must be enabled in order to support this database
@@ -38,7 +39,8 @@ ActiveRecord::Schema.define(version: 2021_03_07_142336) do
     t.string "address"
     t.string "first_name"
     t.string "last_name"
-    t.integer "phone_number"
+    t.string "phone_number"
+
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
