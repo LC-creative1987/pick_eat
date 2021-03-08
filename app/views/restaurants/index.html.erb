@@ -1,0 +1,21 @@
+<div class="restaurants">
+  <% @restaurants.each do |restaurant| %>
+    <div class="restaurant-wrapper">
+      <img src="https://picsum.photos/300/200" alt="">
+      <div class="restaurant-card-info">
+        <h4><%= restaurant.name %></h4>
+        <p><%= restaurant.cuisine %></p>
+        <span class="rating-stars">*****</span>
+        <p class="restaurant-distance">500km</p>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
