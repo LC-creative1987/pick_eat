@@ -1,0 +1,40 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Create a new dish</h1>
+      <%= simple_form_for @dish do |f| %>
+        <%= f.input :name %>
+          <%= simple_form_for @dish_ingredients do |f| %>
+          <table>
+            <tr>
+
+
+              </tr>
+              <%= f.fields_for :dish_ingredients do |builder| %>
+                <%= render 'dish_ingredient_fields', f: builder %>
+              <% end %>
+              <tr>
+                <td><%= link_to_add_fields "Add Dish Ingredient", f, :dish_ingredients,"", "Add a new Ingredient to Dish" %></td>
+              </tr>
+
+              <tr>
+                <td><%= f.collection_select(:ingredient, @ingredient, :name) %></td>
+                <td><%= f.input :min_quantity %></td>
+                <td><%= f.input :base_quantity %></td>
+                <td><%= f.input :max_quantity %></td>
+                <td><%= f.input :_destroy, as: :hidden, label: false %></td>
+                <td><%= link_to "Remove", '#', :onclick => h("remove_fields(this)"), class: "btn", title: "Remove Dish Ingredient", remote: true %></td>
+                <td><%= f.submit class: 'btn btn-primary'%></td>
+
+              </tr>
+            <% end %>
+            </table>
+
+          </>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

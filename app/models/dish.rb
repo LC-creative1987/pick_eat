@@ -1,5 +1,6 @@
 class Dish < ApplicationRecord
-  belongs_to :restaurant
+
+  belongs_to :restaurant, foreign_key: true
   has_many :dish_ingredients, dependent: :destroy
   has_many :ingredients, through: :dish_ingredients
 
