@@ -8,10 +8,14 @@
 
 require 'faker'
 
-puts "Destroying all restaurants, users, dishes..."
+puts "Destroying..."
 Restaurant.destroy_all
 User.destroy_all
 Dish.destroy_all
+Ingredient.destroy_all
+DishIngredient.destroy_all
+
+
 
 puts "Creating users..."
 5.times do
@@ -44,6 +48,31 @@ puts "Creating dishes..."
     name: Faker::Food.dish,
     base_price: rand(1..10),
     restaurant: Restaurant.all.sample
+  )
+end
+
+
+puts "Creating Ingredients..."
+50.times do
+  Ingredient.create!(
+    name: Faker::Food.ingredient,
+    unit: ["gram", "tablespoon", "teaspoon", "slice"].sample,
+    change_increment: ["1", "10", "25", "50", "100"].sample,
+    cost: rand(1..50),
+    price: rand(10..60),
+    restaurant: Restaurant.all.sample
+  )
+end
+
+
+puts "Creating dish_ingredients..."
+20.times do
+  DishIngredient.create!(
+    base_quantity: rand(5..200),
+    min_quantity: rand(0..6),
+    max_quantity: rand(10..300),
+    dish: Dish.all.sample,
+    ingredient: Ingredient.all.sample
   )
 end
 

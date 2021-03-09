@@ -11,9 +11,11 @@
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
         <h3 class="m-4">Menu</h3>
         <% @dishes.each do |dish| %>
-          <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-            <%= dish.name %>
-          </div>
+          <%= link_to dish_path(dish) do %>
+            <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+              <%= dish.name %>
+            </div>
+          <% end %>
         <% end %>
       </div>
     </div>
