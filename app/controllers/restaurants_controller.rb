@@ -19,7 +19,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-
   def update
     @restaurant.update(restaurant_params)
     redirect_to restaurant_path(@restaurant)
@@ -33,11 +32,11 @@ class RestaurantsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = Flat.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :phone_number, :cuisine)
-  end  
+  end
 end
 
