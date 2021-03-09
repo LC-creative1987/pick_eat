@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :restaurants, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
-  validates_presence_of :first_name, :last_name, :address, :phone_number
-  validates :first_name, uniqueness: { scope: :last_name }
+  validates_presence_of :first_name, :last_name, :address, :phone_number, :email
+  validates_uniqueness_of :email
 end
