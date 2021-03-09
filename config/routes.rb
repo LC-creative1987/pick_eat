@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  resources :dishes, only: :show
+  resources :dishes, only: :show do
+    patch :increase_amount
+    patch :decrease_amount
+  end
+
 end
