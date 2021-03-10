@@ -41,7 +41,7 @@ puts "Creating restaurants..."
       unit: ["gram", "tablespoon", "teaspoon", "slice"].sample,
       change_increment: ["1", "10", "25", "50", "100"].sample,
       cost: rand(1..50),
-      price: rand(10..60),
+      price: rand(1..60),
       restaurant: restaurant
     )
   end
