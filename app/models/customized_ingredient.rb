@@ -2,7 +2,7 @@ class CustomizedIngredient < ApplicationRecord
   belongs_to :dish_ingredient
   belongs_to :order_item
   validates :quantity, numericality: { only_integer: true }
-  validate :quantity_range, :before => :create
+  before_validation :quantity_range, on: :create
 
 
  private
