@@ -1,9 +1,16 @@
 class RestaurantsController < ApplicationController
-
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
     @restaurants = Restaurant.all
+    @markers = @restaurants.geocoded.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+        #image_url: helpers.asset_url('images/map.jpg')
+      }
+    end
   end
 
   def show
@@ -21,6 +28,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
+
     if @restaurant.save
       flash[:success] = "Thanks for adding your restaurant!"
       redirect_to @restaurant
@@ -50,4 +58,3 @@ class RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :address, :phone_number, :cuisine, :photo)
   end
 end
-

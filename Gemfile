@@ -32,9 +32,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
+gem 'cloudinary', '~> 1.16.0'
+gem 'geocoder'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails', groups: [:development, :test]
@@ -43,7 +46,6 @@ group :development, :test do  gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
-gem 'cloudinary', '~> 1.16.0'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
