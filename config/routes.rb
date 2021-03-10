@@ -2,7 +2,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :restaurants
+  resources :restaurants do
+    resources :dishes, only: [:show, :create]
+  end
+
+
+
+  resources :dishes, only: [] do
+      resources :dish_ingredients, only: :create
+  end
+
+
 
   resources :orders
 
@@ -11,9 +21,7 @@ Rails.application.routes.draw do
     patch :increase_amount
   end
 
-  resources :dishes, only: [:index, :show, :new, :create] do
-    resources :dish_ingredients, only: [:index, :show, :new, :create]
-  end
+
 
 
 end
