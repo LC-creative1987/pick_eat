@@ -8,4 +8,7 @@ class Restaurant < ApplicationRecord
   validates :name, uniqueness: true
   validates :cuisine, inclusion: { in: CUISINES }
   has_one_attached :photo
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end
