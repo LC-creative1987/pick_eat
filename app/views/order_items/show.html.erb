@@ -3,24 +3,29 @@
     <div class="col-10">
       <ul class="list-group list-group-flush">
 
-
-
         <h1><%= @order_item.dish.name %></h1>
 
         <% @order_item.customized_ingredients.each do |customized_ingredient| %>
           <li class="list-group-item">
             <h4><%= customized_ingredient.dish_ingredient.ingredient.name %></h4>
-            <%= customized_ingredient.dish_ingredient.ingredient.change_increment %>
-            <%= customized_ingredient.dish_ingredient.ingredient.unit %>
-            (min) <%= customized_ingredient.dish_ingredient.min_quantity %>
-            <%= link_to "↓", customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, class: "btn btn-primary" %>
-            <%= customized_ingredient.quantity %>
-            <%= link_to "↑", customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, class: "btn btn-primary" %>
-            <%= customized_ingredient.dish_ingredient.max_quantity %> (max)
+            <div class="d-flex justify-content-between">
+              <div>
+                <%= customized_ingredient.dish_ingredient.ingredient.change_increment %>
+                <%= customized_ingredient.dish_ingredient.ingredient.unit %>
+                (AED <%= customized_ingredient.dish_ingredient.ingredient.price %>)
+                (min) <%= customized_ingredient.dish_ingredient.min_quantity %>
+                <%= link_to "↓", customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, class: "btn btn-primary" %>
+                <%= customized_ingredient.quantity %>
+                <%= link_to "↑", customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, class: "btn btn-primary" %>
+                <%= customized_ingredient.dish_ingredient.max_quantity %> (max)
+              </div>
+
+              <div>
+                AED <%= @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %>
+              </div>
+            </div>
           </li>
         <% end %>
-
-
 
       </ul>
       <%= link_to "back", restaurant_path(@order_item.dish.restaurant) %>
