@@ -4,5 +4,4 @@ class IngredientsController < ApplicationController
 
     @ingredients = Ingredient.all
   end
-
 end

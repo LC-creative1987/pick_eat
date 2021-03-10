@@ -11,8 +11,6 @@ class DishesController < ApplicationController
     @dish_ingredient = DishIngredient.new
   end
 
-
-
   def new
     @dish = Dish.new
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -56,5 +54,4 @@ class DishesController < ApplicationController
       :name, :base_price, :restaurant_id
     )
   end
-
 end

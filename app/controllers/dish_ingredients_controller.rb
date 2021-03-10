@@ -9,7 +9,6 @@ class DishIngredientsController < ApplicationController
     @dish_ingredient = DishIngredient.new
     @dish = Dish.find(params[:format])
     @dish_ingredient.dish = @dish
-
   end
 
   def create
@@ -25,8 +24,6 @@ class DishIngredientsController < ApplicationController
   end
 
   private
-
-
 
   def dish_ingredient_params
     params.require(:dish_ingredient).permit(
