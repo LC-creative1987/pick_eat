@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Add dish ingredients</h1>
+      <%= simple_form_for ([@dish, @dish_ingredient]) do |f| %>
+                <%= f.association :dish %>
+                <%= f.label :dish_ingredient %><br />
+                <%= f.collection :dish_ingredient, @ingredients, :id, :name, :prompt => "Add ingredients to dish" %>
+
+                <%= f.input :min_quantity %>
+                <%= f.input :base_quantity %>
+                <%= f.input :max_quantity %>
+                <%= f.input :destroy, as: :hidden, label: false %>
+                <%= link_to "Remove", '#', :onclick => h("remove_fields(this)"), class: "btn", title: "Remove Dish Ingredient", remote: true %></td>
+                <%= f.submit class: 'btn btn-primary'%>
+        <%= f.submit class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
