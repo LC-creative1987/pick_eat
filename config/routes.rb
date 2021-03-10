@@ -2,18 +2,20 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  resources :restaurants
+  resources :restaurants do
+    resources :dishes, only: [:show, :create]
+  end
 
-  resources :orders
+  resources :dishes, only: [] do
+      resources :dish_ingredients, only: :create
+  end
 
-  resources :customized_ingredients do
+  resources :orders, only: :show
+
+  resources :order_items, only: [:show, :create]
+
+  resources :customized_ingredients, only: [] do
     patch :decrease_amount
     patch :increase_amount
   end
-
-  resources :dishes, only: [:index, :show, :new, :create] do
-    resources :dish_ingredients, only: [:index, :show, :new, :create]
-  end
-
-
 end

@@ -5,12 +5,11 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1>Create a new dish</h1>
       <%= simple_form_for @dish do |f| %>
-                <%= f.input :name %>
-                <%= f.input :base_price %>
+          <%= f.input :name %>
+          <%= f.input :base_price %>
 
-                <%= f.input :destroy, as: :hidden, label: false %>
-                <%= link_to "Remove", '#', :onclick => h("remove_fields(this)"), class: "btn", title: "Remove Dish", remote: true %></td>
-                <%= f.submit class: 'btn btn-primary'%>
+
+          <%= f.submit class: 'btn btn-primary'%>
       <% end %>
     </div>
   </div>

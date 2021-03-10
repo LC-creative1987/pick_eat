@@ -12,7 +12,9 @@
 
           <div class="d-flex justify-content-between p-3">
             <div>
-              <p class="text-bold"><%= restaurant.name %></p>
+              <%= link_to restaurant_path(restaurant) do %>
+                <p class="text-bold"><%= restaurant.name %></p>
+              <% end %>
               <p class="mb-0 fs-12"><%= restaurant.cuisine %></p>
             </div>
 

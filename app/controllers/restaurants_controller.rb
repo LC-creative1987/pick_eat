@@ -16,9 +16,6 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes = @restaurant.dishes
-    @dishes.each do |dish|
-      @ingredients = dish.ingredients
-    end
   end
 
   def new
