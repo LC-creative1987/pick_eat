@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :user, foreign_key: true
-  has_many :dishes, through: :order_items
+  belongs_to :user
+  has_many :dishes
   has_many :customized_items, through: :order_items
 end

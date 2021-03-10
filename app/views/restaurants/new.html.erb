@@ -8,6 +8,7 @@
         <%= f.input :address %>
         <%= f.input :phone_number %>
         <%= f.input :cuisine, collection: Restaurant::CUISINES %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>
