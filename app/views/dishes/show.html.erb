@@ -3,9 +3,37 @@
     <div class="col-10">
       <h1><%= @dish.name %></h1>
 
-  <%= link_to "Add Ingredients", new_dish_dish_ingredient_path(@dish), class: "btn btn-primary" %>
+
+
+            <div>
+            <%#= link_to 'Edit', edit_restaurant_dish_path(@dish), class: 'ml-3 text-warning' %>
+            <%#= link_to "Remove", restaurant_dish_path(@dish),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ml-3 text-danger' %>
+            <%#= link_to "See all dishes", restaurant_dishes_path %>
+
+            <%#= link_to "Add Ingredienst to the dish", new_dish_ingredient_path(@dish) %>
+
+
+          </div>
 
     </div>
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Add dish ingredients</h1>
+      <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
+        <%= f.input :ingredient, collection: @ingredients %>
+        <%= f.input :min_quantity %>
+        <%= f.input :base_quantity %>
+        <%= f.input :max_quantity %>
+        <%= link_to "Remove", '#', :onclick => h("remove_fields(this)"), class: "btn", title: "Remove Dish Ingredient", remote: true %></td>
+        <%= f.submit class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</div>

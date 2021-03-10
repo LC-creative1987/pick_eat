@@ -18,7 +18,7 @@ puts "Creating users..."
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
-    address: Faker::Address.full_address,
+    address: 'Dubai',
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     password: "123456"
   )
@@ -30,7 +30,7 @@ puts "Creating restaurants..."
 10.times do
   restaurant = Restaurant.create!(
     name: Faker::Restaurant.name,
-    address: Faker::Address.full_address,
+    address: 'Dubai',
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     cuisine: ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French"].sample,
     user: User.all.sample
