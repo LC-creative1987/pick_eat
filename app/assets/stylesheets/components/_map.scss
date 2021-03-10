@@ -6,3 +6,24 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+#map {
+
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  width: 200vh;
+}
+
+
+.mapboxgl-ctrl-geocoder--input {
+
+  background-color: #FFE500;
+  border-radius: 18px;
+}
+
+.mapboxgl-ctrl-geocoder {
+
+  border-radius: 37px;
+}
+
