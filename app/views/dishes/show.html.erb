@@ -3,18 +3,8 @@
     <div class="col-10">
       <h1><%= @dish.name %></h1>
 
-      <% @ingredients.each do |ingredient| %>
-          <%= ingredient.name %>
-          (<%= ingredient.unit %>)
-      <% end %>
+  <%= link_to "Add Ingredients", new_dish_dish_ingredient_path(@dish), class: "btn btn-primary" %>
 
-      <% @dish_ingredients.each do |dish_ingredient| %>
-        (min)<%= dish_ingredient.min_quantity %>
-        <%= link_to "ꜜ", dish_decrease_amount_path(@dish), method: :patch, class: "btn btn-primary" %>
-        <%= dish_ingredient.base_quantity %>
-        <%= link_to "^", dish_increase_amount_path(@dish), method: :patch, class: "btn btn-primary" %>
-        <%= dish_ingredient.max_quantity %>(max)
-      <% end %>
     </div>
   </div>
 </div>

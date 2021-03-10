@@ -1,0 +1,11 @@
+comment.txt
+
+
+
+ </tr>
+              <%= f.fields_for :dish_ingredient do |builder| %>
+                <%= render 'dish_ingredient_fields', f: builder %>
+              <% end %>
+              <tr>
+                <td><%= link_to_add_fields "Add Dish Ingredient", f, :dish_ingredient,"", "Add a new Ingredient to Dish" %></td>
+              </tr>

@@ -1,9 +1,16 @@
 class DishIngredientsController < ApplicationController
-before_action :set_dish_ingredient
 
   def show
     @dish_ingredient = dish_ingredient.find(params[:id])
     @ingredients = Ingredient.all
+  end
+
+  def new
+    @dish_ingredient = DishIngredient.new
+    @ingredients = current_user.restaurant.ingredients
+    @dish = Dish.find(params[:dish_id])
+    @dish_ingredient.dish = @dish
+
   end
 
   def create
@@ -18,9 +25,7 @@ before_action :set_dish_ingredient
 
   private
 
-  def set_dish_ingredient
-    @dish_ingredient = dish_ingredient.find(params[:id])
-  end
+
 
   def dish_ingredient_params
     params.require(:dish_ingredient).permit(
