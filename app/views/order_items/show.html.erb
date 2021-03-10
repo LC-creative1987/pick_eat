@@ -3,8 +3,6 @@
     <div class="col-10">
       <ul class="list-group list-group-flush">
 
-
-
         <h1><%= @order_item.dish.name %></h1>
 
         <% @order_item.customized_ingredients.each do |customized_ingredient| %>
@@ -19,8 +17,6 @@
             <%= customized_ingredient.dish_ingredient.max_quantity %> (max)
           </li>
         <% end %>
-
-
 
       </ul>
       <%= link_to "back", restaurant_path(@order_item.dish.restaurant) %>
