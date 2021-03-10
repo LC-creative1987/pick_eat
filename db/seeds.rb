@@ -53,7 +53,7 @@ end
 
 
 puts "Creating Ingredients..."
-50.times do
+200.times do
   Ingredient.create!(
     name: Faker::Food.ingredient,
     unit: ["gram", "tablespoon", "teaspoon", "slice"].sample,

@@ -5,14 +5,12 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-
-  def index
-    @restaurants = Restaurant.all
-  end
-
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes = @restaurant.dishes
+    @dishes.each do |dish|
+      @ingredients = dish.ingredients
+    end
   end
 
   def new
@@ -22,6 +20,7 @@ class RestaurantsController < ApplicationController
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
+    
     if @restaurant.save
       flash[:success] = "Thanks for adding your restaurant!"
       redirect_to @restaurant

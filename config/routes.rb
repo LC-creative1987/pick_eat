@@ -4,9 +4,16 @@ Rails.application.routes.draw do
 
   resources :restaurants
 
-  resources :users do
-    resources :orders
+  resources :orders
+
+  resources :customized_ingredients do
+    patch :decrease_amount
+    patch :increase_amount
   end
 
-  resources :dishes, only: :show
+  resources :dishes, only: [:index, :show, :new, :create] do
+    resources :dish_ingredients, only: [:index, :show, :new, :create]
+  end
+
+
 end
