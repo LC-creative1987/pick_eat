@@ -1,5 +1,4 @@
 class Restaurant < ApplicationRecord
-  has_one_attached :photo
   CUISINES = ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French"]
   belongs_to :user
   has_many :dishes, dependent: :destroy
@@ -8,4 +7,5 @@ class Restaurant < ApplicationRecord
   validates_presence_of :name, :address, :phone_number, :cuisine
   validates :name, uniqueness: true
   validates :cuisine, inclusion: { in: CUISINES }
+  has_one_attached :photo
 end
