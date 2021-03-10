@@ -4,23 +4,6 @@ class OrdersController < ApplicationController
   def show
   end
 
-  def new
-  end
-
-  def create
-    if @order.present?
-      @order << dish
-    else
-      order = Order.new()
-      order << dish
-      if order.save
-        redirect_to order_path(order)
-      else
-        render :new
-      end
-    end
-  end
-
   private
 
   def set_order

@@ -4,11 +4,13 @@
       <% @restaurants.each do |restaurant| %>
       <div class="col-12 col-md-6 col-sm-12 col-lg-3">
         <div class="card mb-3 rounded">
-          <div class="card-image" style="background-image: url('<%= cl_image_path @restaurant.photo.key, height: 300, crop: :fill %>')"></div>
+          <!-- <div class="card-image" style="background-image: url('<%#= cl_image_path @restaurant.photo.key, height: 300, crop: :fill %>')"></div> -->
           <div class="d-flex justify-content-between p-3">
 
             <div>
-              <p class="text-bold"><%= restaurant.name %></p>
+              <%= link_to restaurant_path(restaurant) do %>
+                <p class="text-bold"><%= restaurant.name %></p>
+              <% end %>
               <p class="mb-0 fs-12"><%= restaurant.cuisine %></p>
             </div>
 

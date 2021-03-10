@@ -10,7 +10,6 @@ class DishIngredientsController < ApplicationController
     @ingredients = current_user.restaurant.ingredients
     @dish = Dish.find(params[:dish_id])
     @dish_ingredient.dish = @dish
-
   end
 
   def create
@@ -24,8 +23,6 @@ class DishIngredientsController < ApplicationController
   end
 
   private
-
-
 
   def dish_ingredient_params
     params.require(:dish_ingredient).permit(

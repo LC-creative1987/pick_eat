@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -9,9 +8,6 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes = @restaurant.dishes
-    @dishes.each do |dish|
-      @ingredients = dish.ingredients
-    end
   end
 
   def new
@@ -20,7 +16,7 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.user == current_user
+    @restaurant.user = current_user
     if @restaurant.save
       flash[:success] = "Thanks for adding your restaurant!"
       redirect_to @restaurant

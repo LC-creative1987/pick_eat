@@ -1,29 +1,28 @@
 class CustomizedIngredientsController < ApplicationController
-  def show
-    @customized_ingredients = CustomizedIngredients.find(params[:id])
-    @dish_ingredient = @customized_ingredients.dish_ingredient
-    @order_item = @customized_ingredients.order_item
-  end
-
   def increase_amount
-    @dish = Dish.find(params[:dish_id])
-    @ingredients = @dish.ingredients
-    @dish_ingredients = @dish.dish_ingredients
-    @ingredients.each do |ingredient|
-      @dish_ingredients.each do |dish_ingredient|
-        dish_ingredient.base_quantity += ingredient.change_increment
-      end
+    # @order_item = OrderItem.find(params[:customized_ingredient_id])
+    customized_ingredient = CustomizedIngredient.find(params[:customized_ingredient_id])
+    ingredient = customized_ingredient.dish_ingredient.ingredient
+    customized_ingredient.quantity += ingredient.change_increment
+
+    if customized_ingredient.quantity < customized_ingredient.dish_ingredient.max_quantity
+      customized_ingredient.save
+      redirect_to customized_ingredient.order_item
+    else
+      redirect_to customized_ingredient.order_item, notice: "The value can not be bigger then the max"
     end
   end
 
   def decrease_amount
-    @dish = Dish.find(params[:dish_id])
-    @ingredients = @dish.ingredients
-    @dish_ingredients = @dish.dish_ingredients
-    @ingredients.each do |ingredient|
-      @dish_ingredients.each do |dish_ingredient|
-        dish_ingredient.base_quantity -= ingredient.change_increment
-      end
+    customized_ingredient = CustomizedIngredient.find(params[:customized_ingredient_id])
+    ingredient = customized_ingredient.dish_ingredient.ingredient
+    customized_ingredient.quantity -= ingredient.change_increment
+
+    if customized_ingredient.quantity > customized_ingredient.dish_ingredient.min_quantity
+      customized_ingredient.save
+      redirect_to customized_ingredient.order_item
+    else
+      redirect_to customized_ingredient.order_item, notice: "The value can not be samller then then min"
     end
   end
 end
