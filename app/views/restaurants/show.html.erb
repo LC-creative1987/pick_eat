@@ -11,11 +11,13 @@
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
         <h3 class="m-4">Menu</h3>
         <% @dishes.each do |dish| %>
-          <%= link_to dish_path(dish) do %>
-            <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-              <%= dish.name %>
-            </div>
-          <% end %>
+          <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+            <p><%= dish.name %></p>
+            <%#= link_to 'Add', orders_path(dish), method: :post, class: 'btn btn-primary' %>
+            <% @ingredients.each do |ingredient| %>
+              <p><%= ingredient.name %></p>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
