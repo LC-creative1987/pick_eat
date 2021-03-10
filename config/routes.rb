@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :customized_ingredients do
     patch :decrease_amount
     patch :increase_amount
+  end
 
   resources :dishes, only: [:index, :show, :new, :create] do
     resources :dish_ingredients, only: [:index, :show, :new, :create]
