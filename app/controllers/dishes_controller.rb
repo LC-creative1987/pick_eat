@@ -40,7 +40,6 @@ class DishesController < ApplicationController
   end
 
 
-
   def create
     @dish = Dish.new(dish_params)
     @restaurant = @dish.restaurant
@@ -51,7 +50,6 @@ class DishesController < ApplicationController
       render :new
     end
   end
-
 
   private
 

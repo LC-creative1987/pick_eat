@@ -1,18 +1,24 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: :show
 
-  def create
-    order = Order.new(order_params)
-
-    if order.save
-      redirect_to order_path(@order)
-    else
-      render :new
-    end
+  def show
   end
 
-  def show
-    @order = Order.find(params[:id])
+  def new
+  end
+
+  def create
+    if @order.present?
+      @order << dish
+    else
+      order = Order.new()
+      order << dish
+      if order.save
+        redirect_to order_path(order)
+      else
+        render :new
+      end
+    end
   end
 
   private
