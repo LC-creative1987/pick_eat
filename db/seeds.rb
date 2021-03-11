@@ -26,10 +26,11 @@ end
 
 
 puts "Creating restaurants..."
+locations = ["Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai", "Dubai Creek Golf & Yacht Club Opposite Deira City Centre - Dubai", "Al Falak St - Al SufouhDubai Media City - Dubai", "Motor City - Dubai", "Marina Promenade - Sheikh Zayed Rd - Dubai Marina - Dubai", "906 Jumeirah St - Umm Suqeim 3 - Dubai", " Burj Khalifa Blvd - Business Bay - Dubai", " Dubai Festival City - Dubai", " Bluewaters Island - Dubai", "Crescent Rd - The Palm Jumeirah - Dubai"]
 10.times do
   restaurant = Restaurant.create!(
     name: Faker::Restaurant.name,
-    address: 'Dubai',
+    address: locations.sample,
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
     cuisine: ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French"].sample,
     user: User.all.sample

@@ -2,12 +2,19 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @restaurants = Restaurant.all
+
+    if params[:query].empty?
+      @restaurants = Restaurant.all
+    else
+      @restaurants = Restaurant.near(params[:query], 10)
+    end
+
+
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+        lng: restaurant.longitude
+        # infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
         #image_url: helpers.asset_url('images/map.jpg')
       }
     end
