@@ -12,12 +12,15 @@ class DishIngredientsController < ApplicationController
   end
 
   def create
-    @dish_ingredient = Dish_ingredient.new(dish_ingredient_params)
+    @dish_ingredient = DishIngredient.new(dish_ingredient_params)
     @dish = Dish.find(params[:dish_id])
     @dish_ingredient.dish = @dish
 
-    if dish_ingredient.save
-      redirect_to redirect_to dish_ingredient_path(@dish, @dish_ingredient), notice: "Ingredients has been added to dish..."
+    @ingredient = Ingredient.find(params[:dish_ingredient][:ingredient])
+    @dish_ingredient.ingredient = @ingredient
+
+    if @dish_ingredient.save!
+      redirect_to restaurant_dish_path(@dish.restaurant, @dish), notice: "Ingredients has been added to dish..."
     else
       render :new
     end
