@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants do
-    resources :dishes, only: [:show, :create]
+    resources :dishes, only: [:new, :show, :create]
   end
 
   resources :dishes, only: [] do
@@ -18,4 +18,7 @@ Rails.application.routes.draw do
     patch :decrease_amount
     patch :increase_amount
   end
+
+  get "/my_restaurants", to: 'dashboard#my_restaurants'
+
 end

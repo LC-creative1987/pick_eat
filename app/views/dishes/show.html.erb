@@ -3,7 +3,23 @@
     <div class="col-10">
       <h1><%= @dish.name %></h1>
 
+      <% @dish.dish_ingredients.each do |dish_ingredient| %>
+<li style="list-style-type:none">
+          <div class container>
+          <%= dish_ingredient.ingredient.name %> -
+          Min Quantity=<%= dish_ingredient.min_quantity %>
+          Base Quantity=<%= dish_ingredient.base_quantity%>
+          Max Quantity=<%= dish_ingredient.max_quantity%>
 
+
+          </div>
+
+
+
+
+
+</li>
+      <% end %>
 
             <div>
             <%#= link_to 'Edit', edit_restaurant_dish_path(@dish), class: 'ml-3 text-warning' %>
@@ -31,7 +47,6 @@
         <%= f.input :min_quantity %>
         <%= f.input :base_quantity %>
         <%= f.input :max_quantity %>
-        <%= link_to "Remove", '#', :onclick => h("remove_fields(this)"), class: "btn", title: "Remove Dish Ingredient", remote: true %></td>
         <%= f.submit class: 'btn btn-primary'%>
       <% end %>
     </div>
