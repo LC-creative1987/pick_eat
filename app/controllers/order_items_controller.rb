@@ -1,6 +1,7 @@
 class OrderItemsController < ApplicationController
+  before_action :set_order_item, only: [:show, :destroy]
+
   def show
-    @order_item = OrderItem.find(params[:id])
   end
 
   def create
@@ -22,5 +23,21 @@ class OrderItemsController < ApplicationController
       end
       redirect_to order_item_path(@order_item)
     end
+  end
+
+  def destroy
+    if params[:from] == "order"
+      @order_item.destroy
+      redirect_to Order.find_by(user: current_user)
+    else
+      @order_item.destroy
+      redirect_to restaurant_path(params[:restaurant_id])
+    end
+  end
+
+  private
+
+  def set_order_item
+    @order_item = OrderItem.find(params[:id])
   end
 end

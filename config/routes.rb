@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: :show
 
-  resources :order_items, only: [:show, :create]
+  resources :order_items, only: [:show, :create, :destroy]
 
   resources :customized_ingredients, only: [] do
     patch :decrease_amount
