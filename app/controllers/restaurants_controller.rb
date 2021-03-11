@@ -2,8 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-
-    if params[:query].empty?
+    if !params[:query].present? || params[:query].empty?
       @restaurants = Restaurant.all
     else
       @restaurants = Restaurant.near(params[:query], 10)
