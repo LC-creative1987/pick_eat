@@ -6,14 +6,14 @@
         <h5>Address: <%= @restaurant.address %></h5>
         <h5>Phone_number: <%= @restaurant.phone_number %></h5>
         <h5>Cuisine: <%= @restaurant.cuisine %></h5>
+        <h5>Picture: <%= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %></h5>
+
  <% if @restaurant.user == current_user %>
           <div class="d-flex justify-content-end align-items-center">
             <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning mr-3" %>
             <%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </div>
           <% end %>
-
-        <!-- <h5>Picture: <%#= cl_image_tag @restaurant.photo.key, height: 300, width: 400, crop: :fill %></h5> -->
       </div>
 
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
