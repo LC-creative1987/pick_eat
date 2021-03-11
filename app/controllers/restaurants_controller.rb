@@ -35,9 +35,16 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def edit
+    unless @restaurant.user == current_user
+      redirect_to @restaurant
+    end
+  end
+
+
   def update
     @restaurant.update(restaurant_params)
-    redirect_to @restaurant
+    redirect_to @restaurant, notice: "Restaurant was succesfully updated"
   end
 
   def destroy
