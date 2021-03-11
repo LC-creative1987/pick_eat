@@ -2,6 +2,10 @@ class OrdersController < ApplicationController
   before_action :set_order, only: :show
 
   def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
+    @added_dish_price = 0
+    @total_price = 0
   end
 
   private

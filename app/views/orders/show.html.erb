@@ -1,0 +1,43 @@
+
+<div class="container my-3">
+  <h1>My basket</h1>
+  <div class="row">
+    <div class="col-10">
+
+      <% @order_items.each do |order_item| %>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item mb-5">
+            <ul class="list-group list-group-flush">
+              <div class="d-flex justify-content-between">
+                <div>
+                  <h3><%= order_item.dish.name %></h3>
+                </div>
+                <div>
+                  <%= link_to "Edit", order_item_path(order_item), class: "btn btn-primary" %>
+                  <%= link_to "Delete", order_item_path(order_item, from: "order"), method: :delete, class: "btn btn-primary" %>
+                </div>
+              </div>
+                <% order_item.customized_ingredients.each do |customized_ingredient| %>
+                <li class="list-group-item">
+                  <%= customized_ingredient.dish_ingredient.ingredient.name %>
+                  (<%= customized_ingredient.quantity %>
+                  <%= customized_ingredient.dish_ingredient.ingredient.unit %>)
+
+                  <% @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %>
+
+                </li>
+                <% @added_dish_price += @ingredient_price %>
+              <% end %>
+              <div class="d-flex justify-content-end pt-3">
+                Total Price of this dish is:  AED <%= dish_total_price = @added_dish_price + order_item.dish.base_price %>
+              </div>
+            </ul>
+          </li>
+          <% @total_price += dish_total_price  %>
+        </ul>
+      <% end %>
+      Total Price: AED <%= @total_price %>
+    </div>
+  </div>
+  <%= link_to "back to all restaurants", restaurants_path, class: "btn btn-primary" %>
+</div>
