@@ -19,20 +19,17 @@
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
         <h3 class="m-4">Menu</h3>
         <% if @restaurant.user == current_user %>
-        <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant), class: "btn btn-primary" %>
+          <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant), class: "btn btn-primary" %>
         <% end %>
         <% @dishes.each do |dish| %>
           <div class="card shadow-sm p-3 mb-5 bg-body rounded">
             <div>
               <h4><%= dish.name %></h4>
-
             </div>
-            <% if !@restaurant.user == current_user %>
+
             <div>
             <%= link_to "Customize the Dish", order_items_path(dish), method: :post, class: "btn btn-primary" %>
             </div>
-             <% end %>
-
 
             <% dish.ingredients.each do |ingredient| %>
               <p><%= ingredient.name %></p>
