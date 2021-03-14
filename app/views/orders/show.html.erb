@@ -1,6 +1,9 @@
 
 <div class="container my-3">
-  <h1>My basket</h1>
+  <div class="d-flex justify-content-between">
+    <h1>My basket</h1>
+    <%= link_to "back to all restaurants", restaurants_path, class: "btn btn-primary" %>
+  </div>
   <div class="row">
     <div class="col-10">
 
@@ -28,6 +31,17 @@
                 </li>
                 <% @added_dish_price += @ingredient_price %>
               <% end %>
+              <% order_item.special_requests.each do |special_request| %>
+              <li class="list-group-item">
+                <%= special_request.ingredient.name %>
+                (<%= special_request.quantity %>)
+                <%= special_request.ingredient.unit %>
+
+                 <% ingredient_price = (special_request.quantity/special_request.ingredient.change_increment) * special_request.ingredient.price %>
+              </li>
+              <% @added_dish_price += ingredient_price %>
+
+              <% end %>
               <div class="d-flex justify-content-end pt-3">
                 Total Price of this dish is:  AED <%= dish_total_price = @added_dish_price + order_item.dish.base_price %>
               </div>
@@ -39,5 +53,4 @@
       Total Price: AED <%= @total_price %>
     </div>
   </div>
-  <%= link_to "back to all restaurants", restaurants_path, class: "btn btn-primary" %>
 </div>

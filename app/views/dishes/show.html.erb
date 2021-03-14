@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-10">
       <h1><%= @dish.name %></h1>
+            <h1><%= @dish.base_price %></h1>
+
 
       <% @dish.dish_ingredients.each do |dish_ingredient| %>
 <li style="list-style-type:none">
@@ -51,4 +53,6 @@
       <% end %>
     </div>
   </div>
+      <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
+
 </div>

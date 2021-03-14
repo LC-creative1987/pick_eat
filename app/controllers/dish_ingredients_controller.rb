@@ -20,7 +20,7 @@ class DishIngredientsController < ApplicationController
     @dish_ingredient.ingredient = @ingredient
 
     if @dish_ingredient.save!
-      redirect_to restaurant_dish_path(@dish.restaurant, @dish), notice: "Ingredients has been added to dish..."
+      redirect_to restaurant_dish_path(@dish.restaurant, @dish), notice: "Ingredients have been added to dish..."
     else
       render :new
     end

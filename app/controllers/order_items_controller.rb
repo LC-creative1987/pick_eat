@@ -2,6 +2,10 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :destroy]
 
   def show
+    @ingredients = @order_item.dish.restaurant.ingredients
+    @special_request = SpecialRequest.new
+    @order_item = OrderItem.find(params[:id])
+    @special_request.order_item = @order_item
   end
 
   def create
