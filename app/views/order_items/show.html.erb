@@ -1,11 +1,11 @@
-<div class="container my-3">
+<div class="container my-3 justify-content-center">
   <div class="row">
     <div class="col-10">
       <ul class="list-group list-group-flush">
 
         <h1><%= @order_item.dish.name %></h1>
 
-        <% @order_item.customized_ingredients.each_with_index do |customized_ingredient, index| %>
+        <% @order_item.customized_ingredients.order(created_at: :asc).each_with_index do |customized_ingredient, index| %>
           <li id="customized_ingredient-<%= customized_ingredient.id %>" class="list-group-item">
             <h4><%= customized_ingredient.dish_ingredient.ingredient.name %></h4>
             <div class="d-flex justify-content-between">
@@ -15,25 +15,65 @@
 
                 (AED <%= customized_ingredient.dish_ingredient.ingredient.price %>)
 
-                (min) <%= customized_ingredient.dish_ingredient.min_quantity %>
-                <%= link_to "↓", customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-primary" %>
+                <div>
+                  (min) <%= customized_ingredient.dish_ingredient.min_quantity %>
+                  <%= link_to "↓", customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-primary" %>
 
-                <%= customized_ingredient.quantity%>
+                  <span class="current-quantity"><strong><%= customized_ingredient.quantity%></strong></span>
 
-                <%= link_to "↑", customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-primary" %>
-                <%= customized_ingredient.dish_ingredient.max_quantity %> (max)
+                  <%= link_to "↑", customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-primary" %>
+                  <%= customized_ingredient.dish_ingredient.max_quantity %> (max)
+                </div>
               </div>
 
               <div>
-                AED <%= @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %>
+                AED <span class="ingredient_price"><%= @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %></span>
               </div>
             </div>
           </li>
         <% end %>
 
+
+        <% if @order_item.special_requests.present? %>
+          <% @order_item.special_requests.order(created_at: :asc).each do |special_request| %>
+            <li id="special_request-<%= special_request.id %>" class="list-group-item">
+              <h4><%= special_request.ingredient.name %></h4>
+              <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between">
+                  <%= special_request.ingredient.change_increment %>
+                  <%= special_request.ingredient.unit %>
+
+                  (AED <%= special_request.ingredient.price %>)
+
+                  <div class="justify-content-between">
+                    (min) <%= 0 %>
+                    <%= link_to "↓", special_request_decrease_amount_path(special_request), method: :patch, remote: true, class: "btn btn-primary" %>
+
+                    <span class="current-quantity"><strong><%= special_request.quantity %></strong></span>
+
+                    <%= link_to "↑", special_request_increase_amount_path(special_request), method: :patch, remote: true, class: "btn btn-primary" %>
+                    <%= 4 * special_request.ingredient.change_increment %> (max)
+                  </div>
+                </div>
+
+                <div>
+                  AED <%= @ingredient_price = (special_request.quantity/special_request.ingredient.change_increment) * special_request.ingredient.price %>
+                  <%= link_to "X", order_item_special_request_path(special_request), method: :delete, remote: true, class: "btn btn-primary" %>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+
+
+        <%= simple_form_for([ @order_item, @special_request ], remote: true) do |f| %>
+          <%= f.input :ingredient, collection: @ingredients %>
+          <%= f.button :submit, 'Add', class: "btn btn-outline-secondary" %>
+        <% end %>
+
       </ul>
-      <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn btn-primary" %>
-      <%= link_to "Add to order", restaurants_path, class: "btn btn-primary"  %>
+      <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn btn-primary my-2" %>
+      <%= link_to "Add to order", order_path(@order_item.order), class: "btn btn-primary"  %>
     </div>
   </div>
 </div>

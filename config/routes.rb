@@ -17,7 +17,15 @@ Rails.application.routes.draw do
   resources :dish_ingredients, only: [:update]
   resources :orders, only: :show
 
-  resources :order_items, only: [:show, :create, :destroy]
+
+  resources :order_items, only: [:show, :create, :destroy] do
+    resources :special_requests, only: [:create, :destroy]
+  end
+
+  resources :special_requests, only: [] do
+    patch :decrease_amount
+    patch :increase_amount
+  end
 
   resources :customized_ingredients, only: [] do
     patch :decrease_amount
