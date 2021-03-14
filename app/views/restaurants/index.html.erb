@@ -1,42 +1,40 @@
 <div class="main-container d-flex justify-content-between">
+  <div class="restaurants-wrapper">
+    <div class="row">
+      <% @restaurants.each do |restaurant| %>
+        <div class="col-12 col-md-6 col-sm-12 col-lg-4">
 
-  <div class="row">
-    <% @restaurants.each do |restaurant| %>
-      <div class="col-12 col-md-6 col-sm-12 col-lg-4">
-        <div class="card mb-3 rounded">
-          <% if restaurant.photo.attached? %>
-            <div class="card-image" style="background-image: url('<%= cl_image_path restaurant.photo.key, height: 300, crop: :fill %>')"></div>
-          <% else %>
-            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1560624052-449f5ddf0c31?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80')" class="rounded"></div>
-          <% end %>
 
-          <div class="d-flex justify-content-between p-3">
-            <div>
-              <%= link_to restaurant_path(restaurant) do %>
-                <p class="text-bold"><%= restaurant.name %></p>
-              <% end %>
-              <p class="mb-0 fs-12"><%= restaurant.cuisine %></p>
-            </div>
-
-            <div class="d-flex flex-column justify-content-end align-items-end">
-              <span class="rating-stars text-yellow">
+          <div class="card-trip">
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag restaurant.photo.key, height: 300, crop: :fill, class: "card-trip-image" %>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', class: "card-trip-image" %>
+            <% end %>
+            <div class="card-trip-infos">
+              <div>
+                <%= link_to restaurant_path(restaurant) do %>
+                  <h2><%= restaurant.name %></h2>
+                <% end %>
+                <p><%= restaurant.cuisine %></p>
+              </div>
+              <p class="card-trip-pricing"><i class="fas fa-map-marker-alt mr-1"></i>500 km</p>
+              <span class="card-trip-user rating-stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
               </span>
-              <p class="restaurant-distance mb-0 text-muted fs-12"><i class="fas fa-map-marker-alt mr-1"></i>500km</p>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
-
+      <% end %>
+    </div>
   </div>
   <div id="map"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+    </div>
 </div>
 
 
