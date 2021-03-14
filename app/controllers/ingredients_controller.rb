@@ -4,7 +4,6 @@ class IngredientsController < ApplicationController
   def index
     @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
     @restaurant = Restaurant.find(params[:restaurant_id])
-
   end
 
   def new
@@ -30,7 +29,8 @@ class IngredientsController < ApplicationController
     redirect_to restaurant_ingredients_path
   end
 
-private
+  private
+
   def set_ingredient
     @ingredient = Ingredient.find(params[:id])
   end
@@ -41,6 +41,3 @@ private
     )
   end
 end
-
-
-
