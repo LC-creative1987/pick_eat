@@ -3,13 +3,18 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants do
-    resources :dishes, only: [:new, :show, :create]
+    resources :dishes, only: [:index, :new, :show, :create, :destroy]
+    resources :ingredients, only: [:index, :new, :create]
   end
 
-  resources :dishes, only: [] do
+  resources :ingredients, only: [:edit, :update, :destroy, :show]
+
+
+  resources :dishes, only: [:edit, :update, :create, :destroy, :show] do
       resources :dish_ingredients, only: :create
   end
 
+  resources :dish_ingredients, only: [:update]
   resources :orders, only: :show
 
 

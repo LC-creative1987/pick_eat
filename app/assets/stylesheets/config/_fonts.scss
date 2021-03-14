@@ -1,16 +1,58 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,400;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
 
 
 @font-face {
-  font-family: "Font Name";
-  src: font-url('FontFile.eot');
-  src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-       font-url('FontFile.woff') format('woff'),
-       font-url('FontFile.ttf') format('truetype')
+  font-family: "Avenir";
+  src: font-url('Avenir/AvenirMedium.eot');
+  src: font-url('Avenir/AvenirMedium.eot?#iefix') format('embedded-opentype'),
+       font-url('Avenir/AvenirMedium.woff') format('woff'),
+       font-url('Avenir/AvenirMedium.ttf') format('truetype');
+       font-weight: normal;
 }
-$my-font: "Font Name";
+
+@font-face {
+  font-family: "Avenir";
+  src: font-url('Avenir/AvenirLight.eot');
+  src: font-url('Avenir/AvenirLight.eot?#iefix') format('embedded-opentype'),
+       font-url('Avenir/AvenirLight.woff') format('woff'),
+       font-url('Avenir/AvenirLight.ttf') format('truetype');
+       font-weight: lighter;
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: font-url('Avenir/AvenirBold.eot');
+  src: font-url('Avenir/AvenirBold.eot?#iefix') format('embedded-opentype'),
+       font-url('Avenir/AvenirBold.woff') format('woff'),
+       font-url('Avenir/AvenirBold.ttf') format('truetype');
+       font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$my-font: "Avenir";
+
+$body-font: $my-font;
+$headers-font: $my-font;
+
+//font size and line-height
+$body-size: 16px;
+$body-height: 1.4;
