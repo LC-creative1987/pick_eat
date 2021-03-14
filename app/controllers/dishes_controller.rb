@@ -6,8 +6,9 @@ class DishesController < ApplicationController
   end
 
   def show
-    @dish = Dish.find(params[:id])
     @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
     @dish_ingredient = DishIngredient.new
   end
 
@@ -15,12 +16,16 @@ class DishesController < ApplicationController
     @dish = Dish.new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @dish.restaurant = @restaurant
+    @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
+    @dish_ingredient = DishIngredient.new
   end
 
   def create
     @dish = Dish.new(dish_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
     @dish.restaurant = @restaurant
+    @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
+    @dish_ingredient = DishIngredient.new
 
     if @dish.save
       redirect_to restaurant_dish_path(@restaurant, @dish)
@@ -29,13 +34,22 @@ class DishesController < ApplicationController
     end
   end
 
-
   def edit
+    @restaurant = @dish.restaurant
+    @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
+    @dish_ingredients = @dish.dish_ingredients
+    @dish_ingredient = DishIngredient.new
+
+    @ingredient = Ingredient.where(dish_ingredient: params[:dish_ingredient_id])
+
+    unless @restaurant.user == current_user
+      redirect_to @restaurant
+    end
   end
 
   def update
     @dish.update(dish_params)
-    redirect_to restaurant_dish_path(@restaurant, @dish)
+    redirect_to dish_path(@dish)
   end
 
   def destroy

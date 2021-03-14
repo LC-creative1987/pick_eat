@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1>Create a new ingredient</h1>
-      <%= simple_form_for @ingredient do |f| %>
+      <%= simple_form_for  [@restaurant, @ingredient]  do |f| %>
           <%= f.input :name %>
           <%= f.input :unit %>
           <%= f.input :change_increment %>
@@ -12,6 +12,8 @@
           <%= f.submit class: 'btn btn-primary'%>
       <% end %>
     </div>
+    <%= link_to "Back to the all ingredients", restaurant_ingredients_path(@restaurant), class: "btn btn-primary" %>
+
   </div>
 </div>
 

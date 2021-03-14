@@ -11,6 +11,7 @@
  <% if @restaurant.user == current_user %>
           <div class="d-flex justify-content-end align-items-center">
             <%= link_to 'Edit', edit_restaurant_path(@restaurant), class: "btn btn-warning mr-3" %>
+            <%= link_to 'Add Ingredients for Restaurant', new_restaurant_ingredient_path(@restaurant), class: "btn btn-warning mr-3" %>
             <%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
           </div>
           <% end %>
@@ -27,19 +28,29 @@
               <h4><%= dish.name %></h4>
             </div>
 
+          <% if !@restaurant.user == current_user %>
             <div>
-            <%= link_to "Customize the Dish", order_items_path(dish), method: :post, class: "btn btn-primary" %>
+            <%= link_to "Customize the Dish", order_items_path(@dish), method: :post, class: "btn btn-primary" %>
             </div>
+           <% else %>
+            <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-primary" %>
+            <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-danger" %>
 
-            <% dish.ingredients.each do |ingredient| %>
-              <p><%= ingredient.name %></p>
             <% end %>
+
+            <% dish.dish_ingredients.each do |dish_ingredient| %>
+              <p><%= dish_ingredient.ingredient.name %></p>
+              <p><%= dish_ingredient.base_quantity %></p>
+            <% end %>
+
           </div>
         <% end %>
       </div>
     </div>
   </div>
   <%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-primary" %>
+  <%= link_to "My Restaurants", my_restaurants_path, class: "btn btn-primary" %>
+
 </div>
 
 

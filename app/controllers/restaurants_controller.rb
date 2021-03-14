@@ -22,6 +22,8 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @dishes = @restaurant.dishes
+    @ingredients = @restaurant.ingredients
+
   end
 
   def new
