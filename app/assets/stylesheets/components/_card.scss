@@ -1,14 +1,107 @@
 
-.card-image {
-  height: 20vh;
-  background-position: center;
-  background-size: cover;
-  // border-image: url(https://images.unsplash.com/photo-1582920980795-2f97b0834c58?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80) 30 round;
+.taller {
+
+  min-height: 250px;
 }
 
- .rounded {
-    border-radius: 4px !important;
+.restaurants-wrapper{
+  width: 100%;
+  padding: 20px;
+}
 
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  background-color: #ad95d0;
+  margin-bottom: 32px;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  color: black;
+  margin-bottom: 22px;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+  font-weight: bolder;
+  margin-right: -4px;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  min-height: 90px;
+  background-color: #ad95d0;
+  color: black;
+
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 11px;
+  top: 16px;
+}
+
+  .rating-stars {
+    color: #dee2e6!important;
+  }
+
+
+
+
+// EFFECTS
+
+@supports (clip-path: circle(25%)) {
+  .card-trip {
+    &:hover .card-trip-image {
+      clip-path: polygon(0% 0%, 100% 0%, 100% 50%, 100% 100%, 0% 100%);
+    }
+
+
+  }
+  .card-trip {
+    clip-path: circle(0%);
+    animation: circle-grow 2000ms 450ms forwards;
+
+  }
+
+  .card-trip-image {
+    clip-path: polygon(
+      -149.89% -19.5%, 113% 0%, 117% 30%, 63.09% 86.44%, 0% 47.94%
+    );
+    transition: clip-path 400ms ease-in-out;
+  }
+}
+
+@keyframes circle-grow {
+  to {
+    clip-path: circle(100%);
+  }
+}
+
+@keyframes heading-in {
+  to {
+    clip-path: inset(0% 0%);
+  }
 }
 
 
