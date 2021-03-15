@@ -8,10 +8,10 @@ const fruitAnimations = () => {
 
   setInterval(() => {
     console.log(fruit);
-    fruitX += Math.random() * 100
+    // fruitX += Math.random() * 100
     fruitY += Math.random() * 50
 
-    fruit.style.bottom = `${fruitX}px`;
+    // fruit.style.bottom = `${fruitX}px`;
     fruit.style.right = `${fruitY}px`;
   }, 1500)
 }
