@@ -1,10 +1,8 @@
-
 <div class="main-container d-flex justify-content-between">
   <div class="restaurants-wrapper">
     <div class="row">
       <% @restaurants.each do |restaurant| %>
         <div class="col-12 col-md-6 col-sm-12 col-lg-4">
-
 
           <div class="card-trip">
             <% if restaurant.photo.attached? %>
@@ -28,8 +26,8 @@
               </span>
             </div>
           </div>
-           <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-outline-primary mr-3" %>
-              <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+          <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-outline-primary mr-3" %>
+          <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
         </div>
 
       <% end %>
@@ -38,9 +36,8 @@
 
   </div>
   <div id="map"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
 
