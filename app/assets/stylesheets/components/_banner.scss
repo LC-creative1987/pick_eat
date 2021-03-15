@@ -6,7 +6,15 @@
   background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), image-url("https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   background-position: center;
-  h1 {
+}
+
+.home-banner {
+  background-size: cover;
+  height: 100vh;
+  color: #eee;
+  text-align: center;
+  padding-top: 40vh;
+h1 {
     color: white;
     font-weight: bold;
     font-size: 45px;
@@ -16,7 +24,7 @@
 
   h3{
 
-    color: #DAF7A6;
+    color: white;
   }
   p {
     color: white;
@@ -24,12 +32,14 @@
     font-size: 22px;
     font-weight: lighter;
     margin-bottom: 32px;
-    /*text-shadow: 1px 1px 3px rgb(0 0 0 / 20%);*/
+    text-shadow: 1px 1px 5px black;
+
   }
   .btn {
     padding: 9px 32px;
-    background-color: #DAF7A6;
-        border-color: #daf7a6;
+    background-color: #563D7C;
+    border-color: #563D7C;
+    height: 37px;
   }
 
   .ml3 {
@@ -40,3 +50,11 @@
 }
 
 
+
+
+
+#banner-typed-text {
+
+font-weight: bolder;
+
+}

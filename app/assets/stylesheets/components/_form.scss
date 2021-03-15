@@ -59,12 +59,13 @@
 }
 
 .login-row {
-  background: #ad95d0;
+  background: #ad95d030;
   padding: 10px 20px;
-  margin-top: 50px;
+    margin: 50px auto;
   border-radius: 3px;
   box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   text-align: -webkit-center;
+  width: 300px;
 
   h2 {
     font-size: 25px;
@@ -75,8 +76,26 @@
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    background-color: #ad95d0;
+    border: none;
   }
 }
 
+.sign-up {
+  background: #ad95d030;
+  padding: 10px 20px;
+  margin: 50px auto;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-align: -webkit-center;
+  width: 300px;
+h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+  }
+}
 

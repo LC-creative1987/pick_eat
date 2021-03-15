@@ -7,6 +7,11 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "controllers"
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+import { loadDynamicBannerText } from '../components/banner';
+import { veggieAnimations } from '../components/veggie_animations';
+import { fruitAnimations } from '../components/fruit_animations';
 
 Rails.start()
 Turbolinks.start()
@@ -32,7 +37,9 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
-
+  initUpdateNavbarOnScroll();
+  loadDynamicBannerText();
+  veggieAnimations();
+  fruitAnimations ();
 })
 
-import "controllers"
