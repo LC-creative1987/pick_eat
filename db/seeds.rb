@@ -43,6 +43,7 @@ locations = ["Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai", "Dubai 
       change_increment: ["1", "10", "25", "50", "100"].sample,
       cost: rand(1..50),
       price: rand(1..60),
+      stock_quantity: rand(200..2000),
       restaurant: restaurant
     )
   end

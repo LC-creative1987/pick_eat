@@ -14,11 +14,10 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Add dish ingredients</h1>
-      <%  @dish_ingredients.each do |dish_ingredient| %>
-        <%= simple_form_for dish_ingredient do |f| %>
-          <%= @ingredient.name %>
-          <%= f.input :ingredient, collection: @ingredients %>
+      <h1>Edit dish ingredients</h1>
+      <%  @dish.dish_ingredients.each do |dish_ingredient| %>
+        <%= dish_ingredient.ingredient.name %>
+        <%= simple_form_for [@dish, dish_ingredient] do |f| %>
           <%= f.input :min_quantity %>
           <%= f.input :base_quantity %>
           <%= f.input :max_quantity %>
@@ -27,6 +26,21 @@
       <% end %>
     </div>
   </div>
-  <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
 </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <h1>Add dish ingredients</h1>
+        <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
+          <%= f.input :ingredient, collection: @restaurant.ingredients %>
+          <%= f.input :min_quantity %>
+          <%= f.input :base_quantity %>
+          <%= f.input :max_quantity %>
+          <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
+  </div>
 
