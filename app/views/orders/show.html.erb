@@ -14,6 +14,7 @@
               <div class="d-flex justify-content-between">
                 <div>
                   <h3><%= order_item.dish.name %></h3>
+                  <h5>(<%= order_item.dish.restaurant.name %>)</h5>
                 </div>
                 <div>
                   <%= link_to "Edit", order_item_path(order_item), class: "btn btn-primary" %>
@@ -51,6 +52,7 @@
         </ul>
       <% end %>
       Total Price: AED <%= @total_price %>
+      <%= link_to "Checkout", ingredient_decrease_stock_quantity_path(@order) %>
     </div>
   </div>
 </div>

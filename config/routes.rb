@@ -7,13 +7,20 @@ Rails.application.routes.draw do
     resources :ingredients
   end
 
+  resources :ingredients, only: [] do
+    get :decrease_stock_quantity
+  end
+
 
   resources :dishes, only: [:edit, :update, :create, :destroy, :show] do
-      resources :dish_ingredients, only: :create
+    resources :dish_ingredients, only: :create
   end
 
   resources :dish_ingredients, only: [:update]
-  resources :orders, only: :show
+
+  resources :orders, only: :show do
+    get :checkout
+  end
 
 
   resources :order_items, only: [:show, :create, :destroy] do
@@ -33,8 +40,5 @@ Rails.application.routes.draw do
   get "/my_restaurants", to: 'dashboard#my_restaurants'
   get "/edit_stock", to: 'dashboard#edit_stock', as: 'edit_stock'
   post '/update_stock', to: 'dashboard#update_stock', as: 'update_stock'
-
-
-
 
 end

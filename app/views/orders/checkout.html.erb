@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="card">
+    <h1>Thank you for your order</h1>
+    <h2>Your order will arrive soon !!!</h2>
+    <% @order.order_items.each do |order_item| %>
+      <h3><%= order_item.dish.name %></h3>
+    <% end %>
+
+    <%= link_to order_item_path(@order, from: "checkout"), method: :delete, class: "btn btn-secondary" do %>
+      <i class="far fa-thumbs-up"></i>
+    <% end %>
+  </div>
+</div>
