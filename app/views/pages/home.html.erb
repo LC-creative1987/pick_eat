@@ -1,17 +1,27 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80);">
-<div class="container">
-  <div class="banner-content text-center">
-    <h1 class="ml3">WELCOME TO PICK EAT</h1>
-    <h3>Do you want to cutomize your own meal with your own preferences?</h3>
-    <p><em>"You are in the right place, we have everything in one place, choose your ingredients and customs your own meal ,<strong>it's cool to be picky"</strong></em></p>
- <%= form_tag restaurants_path, method: :get do %>
+<div class="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.1)), url(https://images.unsplash.com/photo-1516824711718-9c1e683412ac?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1051&q=80);">
+  <h1><span id="banner-typed-text"></span></h1>
+ <!--  <h3>Do you want to customize your own meal with your own preferences?</h3> -->
+  <p><em>"You are in the right place, pick your ingredients and customs your own meal ,<strong>it's cool to be picky"</strong></em></p>
+  <%= form_tag restaurants_path, method: :get do %>
   <%= text_field_tag :query,
-                     params[:query],
-                     class: "form-control user_address",
-                     placeholder: "Enter your address" %>
+  params[:query],
+  class: "form-control user_address",
+   placeholder: "Enter your address" %>
 
-  <%= submit_tag "Search", class: "btn btn-warning" %>
-<% end %>
+   <%= submit_tag "Search", class: "btn btn-info" %>
+   <% end %>
+ </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="content col-6">
+      <h4>At pick eat, we have everything to our picky eater who are always on the go</h4>
+      <p>Bring you creativity to your plate, build delicious meal, it save you time as well as the restaurants and also it's eco-friendly</p>
+      <p>FAST DELIVERY</p>
+      <p>COST EFFECTIVE</p>
+      <p>24H / SUPPORT</p>
+    </div>
   </div>
 </div>
 
@@ -21,4 +31,7 @@
 <!-- <div id="user_address"></div> -->
 <%= content_for(:navbar_class, "navbar-home") %>
 
-<!-- #<%= link_to "Start now", new_user_session_path, class: "btn btn-lg btn-primary"  %> -->
+<!-- #<%= link_to "Start now", new_user_session_path, class: "btn btn-lg btn-info"  %> -->
+
+<%= image_tag("veggies.png", { alt: "veggies", class: 'vegetable' }) %>
+<%= image_tag("fruits.svg", { alt: "fruits", class: 'fruit' }) %>
