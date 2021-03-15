@@ -9,7 +9,6 @@ class RestaurantsController < ApplicationController
       @restaurants = Restaurant.near(params[:query], 10)
     end
 
-
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -49,7 +48,6 @@ class RestaurantsController < ApplicationController
       redirect_to @restaurant
     end
   end
-
 
   def update
     @restaurant.update(restaurant_params)

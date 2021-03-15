@@ -16,40 +16,44 @@ class SpecialRequestsController < ApplicationController
     @special_request = SpecialRequest.find(params[:order_item_id])
     @special_request.destroy
 
-    redirect_to @special_request.order_item
+    redirect_to order_item_path(@special_request.order_item)
   end
 
   def increase_amount
     @special_request = SpecialRequest.find(params[:special_request_id])
     @ingredient = @special_request.ingredient
-    @special_request.quantity += @ingredient.change_increment
 
-    if @special_request.quantity <= 4 * @ingredient.change_increment
+    if @special_request.quantity + @ingredient.change_increment <= 4 * @ingredient.change_increment
+      @special_request.quantity += @ingredient.change_increment
       @special_request.save
       respond_to do |format|
         format.html { redirect_to order_item_path(@special_request.order_item) }
-        format.js
+        format.js { render partial: "change_amount" }
       end
     else
-      flash[:notice] = "The value can not be bigger then the max"
-      redirect_to order_item_path(@special_request.order_item, anchor: "@special_request-#{@special_request.id}")
+      respond_to do |format|
+        format.html { redirect_to order_item_path(@special_request.order_item) }
+        format.js { render partial: "error" }
+      end
     end
   end
 
   def decrease_amount
     @special_request = SpecialRequest.find(params[:special_request_id])
     @ingredient = @special_request.ingredient
-    @special_request.quantity -= @ingredient.change_increment
 
-    if @special_request.quantity >= 0
+    if @special_request.quantity - @ingredient.change_increment >= 0
+      @special_request.quantity -= @ingredient.change_increment
       @special_request.save
       respond_to do |format|
         format.html { redirect_to order_item_path(@special_request.order_item) }
-        format.js
+        format.js { render partial: "change_amount" }
       end
     else
-      flash[:notice] = "The value can not be samller then then min"
-      redirect_to order_item_path(@special_request.order_item, anchor: "@special_request-#{@special_request.id}")
+      respond_to do |format|
+        format.html { redirect_to order_item_path(@special_request.order_item) }
+        format.js { render partial: "error" }
+      end
     end
   end
 

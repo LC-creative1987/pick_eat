@@ -34,12 +34,15 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 
 
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initAutocomplete();
+
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
   veggieAnimations();
   fruitAnimations ();
+
 })
 

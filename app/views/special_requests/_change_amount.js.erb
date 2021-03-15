@@ -1,0 +1,3 @@
+document.querySelector('#special_request-<%= @special_request.id %> .current-quantity').innerHTML = '<%= @special_request.quantity  %>';
+document.querySelector('#special_request-<%= @special_request.id %> .ingredient_price').innerHTML = '<%= @special_request.item_price %>';
+document.querySelector("#special_request-<%= @special_request.id %> .error-notice").innerHTML = "";
