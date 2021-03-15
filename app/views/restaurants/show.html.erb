@@ -35,8 +35,8 @@
 
           <% if @restaurant.user != current_user %>
             <div>
-            <%= link_to "Customize the Dish", order_items_path(@dish), method: :post, class: "btn btn-primary" %>
-            </div>
+            <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
+            </div>2
            <% else %>
             <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-primary" %>
             <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-danger" %>
@@ -45,7 +45,6 @@
 
             <% dish.dish_ingredients.each do |dish_ingredient| %>
               <p><%= dish_ingredient.ingredient.name %></p>
-              <p><%= dish_ingredient.base_quantity %></p>
             <% end %>
 
           </div>
