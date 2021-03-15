@@ -1,1 +1,31 @@
- //Specific CSS for your home-page
+.content {
+      margin-top: 93px
+}
+
+
+h4, .h4 {
+    font-size: 1.5rem;
+    text-align: center;
+    /* text-decoration: overline; */
+    /* text-overflow: ellipsis; */
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
+    white-space: nowrap;
+    background-image: url('veggies.png');
+}
+
+.vegetable {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 250px;
+  transition: all 0.5s ease;
+}
+
+.fruit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 150px;
+  transition: all 0.5s ease;
+}

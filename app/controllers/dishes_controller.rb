@@ -7,7 +7,9 @@ class DishesController < ApplicationController
 
   def show
     @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
-    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant = @dish.restaurant
+
+    #@restaurant = Restaurant.find(params[:restaurant_id])
 
     @dish_ingredient = DishIngredient.new
   end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :restaurants do
-    resources :dishes, only: [:index, :new, :show, :create, :destroy]
+    resources :dishes
     resources :ingredients
   end
 
@@ -11,9 +11,8 @@ Rails.application.routes.draw do
     get :decrease_stock_quantity
   end
 
-
-  resources :dishes, only: [:edit, :update, :create, :destroy, :show] do
-    resources :dish_ingredients, only: :create
+  resources :dishes do
+      resources :dish_ingredients
   end
 
   resources :dish_ingredients, only: [:update]
@@ -21,7 +20,6 @@ Rails.application.routes.draw do
   resources :orders, only: :show do
     get :checkout
   end
-
 
   resources :order_items, only: [:show, :create, :destroy] do
     resources :special_requests, only: [:create, :destroy]

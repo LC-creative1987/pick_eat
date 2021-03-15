@@ -1,6 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: transparent;
+  transition: 0.5s background-color ease;
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+
+  .navbar-wagon-link {
+    color: white;
+    font-weight: bold;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,17 +24,13 @@
 }
 
 
-.navbar-home {
-  position: absolute;
-  width: 100%;
-  background: transparent;
-  box-shadow: none;
-  .navbar-wagon-link {
-    color: white;
-    font-weight: bold;
-  }
-}
-
 .navbar-light .navbar-nav .nav-link {
     color: white;
+}
+
+.navbar-lewagon-white {
+  background-color: white;
+  .nav-link {
+    color: black !important;
+  }
 }
