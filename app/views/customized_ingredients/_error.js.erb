@@ -1,0 +1,6 @@
+setTimeout(function(){document.querySelector('#customized_ingredient-<%= @customized_ingredient.id %> .error-notice').innerHTML='';},5000);
+
+document.querySelector('#customized_ingredient-<%= @customized_ingredient.id %> .current-quantity').innerHTML = '<%= @customized_ingredient.quantity  %>';
+document.querySelector('#customized_ingredient-<%= @customized_ingredient.id %> .ingredient_price').innerHTML = '<%= @customized_ingredient.item_price %>';
+(document.querySelector("#customized_ingredient-<%= @customized_ingredient.id %> .error-notice").innerHTML = "The value has to be within the min and max range").setTimeout
+
