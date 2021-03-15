@@ -4,10 +4,8 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :dishes, only: [:index, :new, :show, :create, :destroy]
-    resources :ingredients, only: [:index, :new, :create]
+    resources :ingredients
   end
-
-  resources :ingredients, only: [:edit, :update, :destroy, :show]
 
 
   resources :dishes, only: [:edit, :update, :create, :destroy, :show] do
@@ -33,5 +31,10 @@ Rails.application.routes.draw do
   end
 
   get "/my_restaurants", to: 'dashboard#my_restaurants'
+  get "/edit_stock", to: 'dashboard#edit_stock', as: 'edit_stock'
+  post '/update_stock', to: 'dashboard#update_stock', as: 'update_stock'
+
+
+
 
 end

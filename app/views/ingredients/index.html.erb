@@ -1,17 +1,19 @@
-<div class="container">
-  <div class="restaurants">
-    <div class="row">
+<div class="h-100 container">
+  <div class= "h-100">
+    <div class="h-100 row">
       <% @ingredients.each do |ingredient| %>
-      <div class="col-12 col-md-6 col-sm-12 col-lg-3">
-        <div class="card mb-3 rounded">
-          <div class="d-flex justify-content-between p-3">
+      <div class="h-100 col-12 col-md-6 col-sm-12 col-lg-3">
+        <div class="h-100 card mb-3 rounded">
+          <div class="h-100 d-flex justify-content-between p-3">
 
-            <div>
-              <p class="text-bold"><%= ingredient.name %></p>
-              <p class="text-bold"><%= ingredient.unit %></p>
-              <p class="text-bold"><%= ingredient.change_increment %></p>
-              <p class="text-bold"><%= ingredient.cost %></p>
-              <p class="text-bold"><%= ingredient.price %></p>
+            <div id="<%= ingredient.id %>" >
+              <p class="text-bold">Ingredient name: <%= ingredient.name %></p>
+              <p class="text-bold">Unit: <%= ingredient.unit %></p>
+              <p class="text-bold">Increment: <%= ingredient.change_increment %></p>
+              <p class="text-bold">Cost: <%= ingredient.cost %></p>
+              <p class="text-bold">Price: <%= ingredient.price %></p>
+              <p class="text-bold">Stock: <%= ingredient.stock_quantity %></p>
+
             </div>
 
               <div class="d-flex flex-column justify-content-end align-items-end">
@@ -20,12 +22,18 @@
               </div>
 
             </div>
+             <%= link_to 'Edit', edit_restaurant_ingredient_path(@restaurant, ingredient), class: "btn btn-outline-primary" %>
+          <%= link_to 'Delete', restaurant_ingredient_path(@restaurant, ingredient), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+
           </div>
+
+
+
         </div>
 
     <% end %>
     </div>
-      <%= link_to "Back to the restaurant", restaurant_path(@restaurant), class: "btn btn-primary" %>
+      <%= link_to "Back to the restaurant", restaurant_ingredients_path(@restaurant), class: "btn btn-primary" %>
 
   </div>
 </div>
