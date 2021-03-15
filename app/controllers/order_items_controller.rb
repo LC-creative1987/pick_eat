@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-  before_action :set_order_item, only: [:show, :destroy]
+  before_action :set_order_item, only: :show
 
   def show
     @ingredients = @order_item.dish.restaurant.ingredients
@@ -31,9 +31,17 @@ class OrderItemsController < ApplicationController
 
   def destroy
     if params[:from] == "order"
+      @order_item = OrderItem.find(params[:id])
       @order_item.destroy
       redirect_to Order.find_by(user: current_user)
+    elsif params[:from] == "checkout"
+      @order = Order.find(params[:id])
+      @order.order_items.each do |order_item|
+        order_item.destroy
+      end
+      redirect_to restaurants_path
     else
+      @order_item = OrderItem.find(params[:id])
       @order_item.destroy
       redirect_to restaurant_path(params[:restaurant_id])
     end

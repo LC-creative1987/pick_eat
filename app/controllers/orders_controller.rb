@@ -8,6 +8,10 @@ class OrdersController < ApplicationController
     @total_price = 0
   end
 
+  def checkout
+    @order = Order.find(params[:order_id])
+  end
+
   private
 
   def set_order
