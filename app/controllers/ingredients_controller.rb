@@ -2,8 +2,9 @@ class IngredientsController < ApplicationController
   before_action :set_ingredient, only: [:show, :edit, :update, :destroy]
 
   def index
-    @ingredients = Ingredient.where(restaurant: params[:restaurant_id])
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @ingredients = @restaurant.ingredients
+
   end
 
   def new
@@ -24,6 +25,23 @@ class IngredientsController < ApplicationController
     end
   end
 
+
+  def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
+    @ingredient.restaurant = @restaurant
+
+    unless @restaurant.user == current_user
+      redirect_to @restaurant
+    end
+  end
+
+  def update
+    @ingredient.update(ingredient_params)
+    redirect_to restaurant_ingredients_path(@ingredient.restaurant,  anchor: "id-#{@ingredient.id}")
+  end
+
+
   def destroy
     @ingredient.destroy
     redirect_to restaurant_ingredients_path
@@ -37,7 +55,7 @@ class IngredientsController < ApplicationController
 
   def ingredient_params
     params.require(:ingredient).permit(
-      :name, :unit, :change_increment, :cost, :price
+      :name, :unit, :change_increment, :cost, :price, :stock_quantity
     )
   end
 end
