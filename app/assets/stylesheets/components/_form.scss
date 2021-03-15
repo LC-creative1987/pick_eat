@@ -30,3 +30,53 @@
     width: 53%;
     margin-bottom: 20px;
 }
+
+
+.display-row {
+
+   display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    background-image: linear-gradient(rgba(0,0,0,1.8),rgba(0,0,0,-6.9)),url("https://images.unsplash.com/photo-1543362906-acfc16c67564?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=701&q=80");
+    padding: 10px 20px;
+    margin-top: 60px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px solid;
+    margin: 67px;
+    color: white;
+    background-size: cover;
+    font-weight: normal;
+
+    h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+
+}
+}
+
+.login-row {
+  background: #ad95d0;
+  padding: 10px 20px;
+  margin-top: 50px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-align: -webkit-center;
+
+  h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+  }
+  .btn {
+    width: 100%;
+    margin-bottom: 20px
+  }
+}
+
+
