@@ -5,77 +5,43 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-require 'faker'
+require "open-uri"
+require "yaml"
 
 puts "Destroying..."
 OrderItem.destroy_all
 User.destroy_all
 
-puts "Creating users..."
-5.times do
-  User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    address: 'Dubai',
-    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-    password: "123456"
-  )
+file = Rails.root.join('db', 'seeds.yml')
+sample = YAML.load(open(file).read)
+
+puts 'Creating users...'
+users = {}
+sample["users"].each do |user|
+  users[user["slug"]] = User.create! user.slice("first_name", "last_name", "email", "address", "phone_number", "password")
 end
 
-
-puts "Creating restaurants..."
-locations = ["Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai", "Dubai Creek Golf & Yacht Club Opposite Deira City Centre - Dubai", "Al Falak St - Al SufouhDubai Media City - Dubai", "Motor City - Dubai", "Marina Promenade - Sheikh Zayed Rd - Dubai Marina - Dubai", "906 Jumeirah St - Umm Suqeim 3 - Dubai", " Burj Khalifa Blvd - Business Bay - Dubai", " Dubai Festival City - Dubai", " Bluewaters Island - Dubai", "Crescent Rd - The Palm Jumeirah - Dubai"]
-10.times do
-  restaurant = Restaurant.create!(
-    name: Faker::Restaurant.name,
-    address: locations.sample,
-    phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-    cuisine: ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French"].sample,
-    user: User.all.sample
-  )
-
-  rand(10..20).times do
-    Ingredient.create!(
-      name: Faker::Food.ingredient,
-      unit: ["gram", "tablespoon", "teaspoon", "slice"].sample,
-      change_increment: ["1", "10", "25", "50", "100"].sample,
-      cost: rand(1..50),
-      price: rand(1..60),
-      stock_quantity: rand(200..2000),
-      restaurant: restaurant
-    )
-  end
-
-  rand(5..15).times do
-    dish = Dish.create!(
-      name: Faker::Food.dish,
-      base_price: rand(1..10),
-      restaurant: restaurant
-    )
-
-    rand(5..15).times do
-      DishIngredient.create!(
-        base_quantity: rand(5..200),
-        min_quantity: rand(0..6),
-        max_quantity: rand(10..300),
-        dish: dish,
-        ingredient: Ingredient.all.sample
-      )
-    end
-  end
+puts 'Creating restaurants...'
+restaurants = {}
+sample["restaurants"].each do |restaurant|
+  restaurants[restaurant["slug"]] = Restaurant.create! restaurant.slice("name", "address", "phone_number", "cuisine").merge(user: users[restaurant["user_slug"]])
 end
 
+puts 'Creating dishes...'
+dishes = {}
+sample["dishes"].each do |dish|
+  dishes[dish["slug"]] = Dish.create! dish.slice("name", "base_price").merge(restaurant: restaurants[dish["restaurant_slug"]])
+end
 
+puts 'Creating ingredients...'
+ingredients = {}
+sample["ingredients"].each do |ingredient|
+  ingredients[ingredient["slug"]] = Ingredient.create! ingredient.slice("name", "unit", "change_increment", "cost", "price", "stock_quantity").merge(restaurant: restaurants[ingredient["restaurant_slug"]])
+end
 
+puts 'Creating dish_ingredients...'
+sample["dish_ingredients"].each do |dish_ingredient|
+  DishIngredient.create! dish_ingredient.slice("base_quantity", "min_quantity", "max_quantity").merge(ingredient: ingredients[dish_ingredient["ingredient_slug"]], dish: dishes[dish_ingredient["dish_slug"]])
+end
 
-
-
-
-
-
-
-
-
-
+puts "Finished"

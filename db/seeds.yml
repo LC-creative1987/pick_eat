@@ -1,0 +1,265 @@
+users:
+  - first_name: "Laura"
+    last_name: "Lewagon"
+    email: "laura@lewagon.com"
+    address: 'Dubai'
+    phone_number: "+751 567792876"
+    password: "123456"
+    slug: laura
+  - first_name: "Zohrab"
+    last_name: "Lewagon"
+    email: "zohrab@lewagon.com"
+    address: 'Dubai'
+    phone_number: "+751 7686329763"
+    password: "123456"
+    slug: zohrab
+  - first_name: "Henry"
+    last_name: "Lewagon"
+    email: "henry@lewagon"
+    address: 'Dubai'
+    phone_number: "+49 87972637688"
+    password: "123456"
+    slug: henry
+
+restaurants:
+  - name: "Blue Sky Thai Food"
+    address: "Burj Khalifa Blvd - Business Bay - Dubai"
+    phone_number: "+8793798479423"
+    cuisine: "Thai"
+    user_slug: zohrab
+    slug: blue_sky_thai_food
+  - name: "California Shack"
+    address: "Bluewaters Island - Dubai"
+    phone_number: "+987398742987"
+    cuisine: "Indian"
+    user_slug: zohrab
+    slug: california_shack
+  - name: "Ember Restaurant"
+    address: "Dubai Festival City - Dubai"
+    phone_number: "+798273947942"
+    cuisine: "Italian"
+    user_slug: henry
+    slug: ember_restaurant
+  - name: "Zoftig Eatery"
+    address: "Motor City - Dubai"
+    phone_number: "+879472983423"
+    cuisine: "Thai"
+    user_slug: henry
+    slug: zoftig_eatery
+  - name: "Atlantic Fish Co"
+    address: "Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai"
+    phone_number: "+987928734672"
+    cuisine: "French"
+    user_slug: henry
+    slug: atlantic_fish_co
+
+dishes:
+  - name: "Pad Thai"
+    base_price: "2"
+    restaurant_slug: blue_sky_thai_food
+    slug: pad_thai
+  - name: "Fried Rice"
+    base_price: "1"
+    restaurant_slug: blue_sky_thai_food
+    slug: fried_rice
+  - name: "Papaya Salad"
+    base_price: "3"
+    restaurant_slug: blue_sky_thai_food
+    slug: papaya_salad
+  - name: "Tom Yum"
+    base_price: "2"
+    restaurant_slug: blue_sky_thai_food
+    slug: tom_yum
+
+
+ingredients:
+  - name: "Rice noodles"
+    unit: "gram"
+    change_increment: "25"
+    cost: "1"
+    price: "2"
+    stock_quantity: "4000"
+    restaurant_slug: blue_sky_thai_food
+    slug: rice_noodles
+  - name: "Egg"
+    unit: "piece"
+    change_increment: "1"
+    cost: "3"
+    price: "5"
+    stock_quantity: "200"
+    restaurant_slug: blue_sky_thai_food
+    slug: egg
+  - name: "Bean sprouts"
+    unit: "tablespoon"
+    change_increment: "1"
+    cost: "5"
+    price: "5"
+    stock_quantity: "800"
+    restaurant_slug: blue_sky_thai_food
+    slug: bean_sprouts
+  - name: "Green onions"
+    unit: "tablespoon"
+    change_increment: "1"
+    cost: "1"
+    price: "1"
+    stock_quantity: "100"
+    restaurant_slug: blue_sky_thai_food
+    slug: green_onions
+  - name: "Pickle radish"
+    unit: "tablespoon"
+    change_increment: "1"
+    cost: "2"
+    price: "2"
+    stock_quantity: "22000"
+    restaurant_slug: blue_sky_thai_food
+    slug: pickle_radish
+  - name: "Chicken"
+    unit: "gram"
+    change_increment: "25"
+    cost: "7"
+    price: "9"
+    stock_quantity: "500"
+    restaurant_slug: blue_sky_thai_food
+    slug: chicken
+  - name: "Rice"
+    unit: "gram"
+    change_increment: "25"
+    cost: "1"
+    price: "1"
+    stock_quantity: "45000"
+    restaurant_slug: blue_sky_thai_food
+    slug: rice
+  - name: "Tomato"
+    unit: "tablespoon"
+    change_increment: "1"
+    cost: "2"
+    price: "2"
+    stock_quantity: "50"
+    restaurant_slug: blue_sky_thai_food
+    slug: tomato
+  - name: "garlic"
+    unit: "teaspoon"
+    change_increment: "1"
+    cost: "1"
+    price: "1"
+    stock_quantity: "200000"
+    restaurant_slug: blue_sky_thai_food
+    slug: garlic
+  - name: "red Thai chili"
+    unit: "teaspoon"
+    change_increment: "1"
+    cost: "1"
+    price: "1"
+    stock_quantity: "432387"
+    restaurant_slug: blue_sky_thai_food
+    slug: red_thai_chili
+  - name: "Grated papaya"
+    unit: "tablespoon"
+    change_increment: "10"
+    cost: "2"
+    price: "2"
+    stock_quantity: "67000"
+    restaurant_slug: blue_sky_thai_food
+    slug: grated_papaya
+  - name: "Prawns"
+    unit: "piece"
+    change_increment: "1"
+    cost: "6"
+    price: "8"
+    stock_quantity: "300"
+    restaurant_slug: blue_sky_thai_food
+    slug: prawns
+
+
+dish_ingredients:
+  - base_quantity: "100"
+    min_quantity: "50"
+    max_quantity: "125"
+    dish_slug: pad_thai
+    ingredient_slug: rice_noodles
+  - base_quantity: "2"
+    min_quantity: "0"
+    max_quantity: "4"
+    dish_slug: pad_thai
+    ingredient_slug: egg
+  - base_quantity: "3"
+    min_quantity: "0"
+    max_quantity: "6"
+    dish_slug: pad_thai
+    ingredient_slug: bean_sprouts
+  - base_quantity: "3"
+    min_quantity: "0"
+    max_quantity: "5"
+    dish_slug: pad_thai
+    ingredient_slug: green_onions
+  - base_quantity: "1"
+    min_quantity: "0"
+    max_quantity: "2"
+    dish_slug: pad_thai
+    ingredient_slug: pickle_radish
+  - base_quantity: "50"
+    min_quantity: "0"
+    max_quantity: "75"
+    dish_slug: pad_thai
+    ingredient_slug: chicken
+  - base_quantity: "25"
+    min_quantity: "0"
+    max_quantity: "75"
+    dish_slug: fried_rice
+    ingredient_slug: chicken
+  - base_quantity: "4"
+    min_quantity: "0"
+    max_quantity: "6"
+    dish_slug: fried_rice
+    ingredient_slug: tomato
+  - base_quantity: "4"
+    min_quantity: "0"
+    max_quantity: "6"
+    dish_slug: fried_rice
+    ingredient_slug: green_onions
+  - base_quantity: "1"
+    min_quantity: "0"
+    max_quantity: "3"
+    dish_slug: fried_rice
+    ingredient_slug: bean_sprouts
+  - base_quantity: "2"
+    min_quantity: "0"
+    max_quantity: "4"
+    dish_slug: papaya_salad
+    ingredient_slug: garlic
+  - base_quantity: "1"
+    min_quantity: "0"
+    max_quantity: "5"
+    dish_slug: papaya_salad
+    ingredient_slug: red_thai_chili
+  - base_quantity: "70"
+    min_quantity: "50"
+    max_quantity: "80"
+    dish_slug: papaya_salad
+    ingredient_slug: grated_papaya
+  - base_quantity: "3"
+    min_quantity: "0"
+    max_quantity: "6"
+    dish_slug: tom_yum
+    ingredient_slug: garlic
+  - base_quantity: "7"
+    min_quantity: "0"
+    max_quantity: "10"
+    dish_slug: tom_yum
+    ingredient_slug: tomato
+  - base_quantity: "3"
+    min_quantity: "0"
+    max_quantity: "5"
+    dish_slug: tom_yum
+    ingredient_slug: green_onions
+  - base_quantity: "4"
+    min_quantity: "0"
+    max_quantity: "7"
+    dish_slug: tom_yum
+    ingredient_slug: prawns
+  - base_quantity: "3"
+    min_quantity: "0"
+    max_quantity: "5"
+    dish_slug: tom_yum
+    ingredient_slug: green_onions
+
