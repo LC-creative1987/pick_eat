@@ -1,19 +1,25 @@
 const fruitAnimations = () => {
-  console.log('fruit')
+  const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
   // Select the veggie
+  const veggie = document.querySelector(".vegetable")
   const fruit = document.querySelector(".fruit")
   // Change the position of the veggie, randomly
-  let fruitX = 0;
-  let fruitY = 0;
 
-  setInterval(() => {
-    console.log(fruit);
-    // fruitX += Math.random() * 100
-    fruitY += Math.random() * 50
+  if (fruit) {
 
-    // fruit.style.bottom = `${fruitX}px`;
-    fruit.style.right = `${fruitY}px`;
-  }, 1500)
+    // Change the position of the veggie, randomly
+    let fruitX = 15;
+    let fruitY = 30;
+
+    setInterval(() => {
+
+      fruitX = getRandom(15, 30);
+      fruitY = getRandom(30, 70);
+
+      fruit.style.right = `${fruitX}%`;
+      fruit.style.bottom = `${fruitY}%`;
+    }, 2000)
+  }
 }
 
 export { fruitAnimations };

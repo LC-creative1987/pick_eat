@@ -12,8 +12,8 @@ class RestaurantsController < ApplicationController
     @markers = @restaurants.geocoded.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
-        # infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+        lng: restaurant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
         #image_url: helpers.asset_url('images/map.jpg')
       }
     end
