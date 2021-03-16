@@ -24,7 +24,9 @@ end
 puts 'Creating restaurants...'
 restaurants = {}
 sample["restaurants"].each do |restaurant|
-  restaurants[restaurant["slug"]] = Restaurant.create! restaurant.slice("name", "address", "phone_number", "cuisine").merge(user: users[restaurant["user_slug"]])
+restaurants[restaurant["slug"]] = Restaurant.create! restaurant.slice("name", "address", "phone_number", "cuisine").merge(user: users[restaurant["user_slug"]])
+file = URI.open(restaurant["photo_url"])
+restaurants[restaurant["slug"]].photo.attach(io: file, filename: 'file.jpg', content_type: 'image/jpg')
 end
 
 puts 'Creating dishes...'
