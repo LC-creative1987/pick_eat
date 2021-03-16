@@ -26,13 +26,13 @@
               </span>
             </div>
           </div>
-          <%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-outline-primary mr-3" %>
-          <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-primary" %>
+          <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+          <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
 
       <% end %>
     </div class="container">
-    <%= link_to "Add Restaurant", new_restaurant_path, class: "btn btn-outline-primary" %>
+    <%= link_to "Add Restaurant", new_restaurant_path%>
 
   </div>
   <div id="map"

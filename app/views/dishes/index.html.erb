@@ -7,7 +7,9 @@
             <div class="d-flex justify-content-between p-3">
 
               <div>
+                <%= link_to dish_path(dish) do %>
                 <p class="text-bold"><%= dish.name %></p>
+                 <% end %>
               </div>
 
               <div class="d-flex flex-column justify-content-end align-items-end">

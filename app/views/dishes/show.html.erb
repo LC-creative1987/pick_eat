@@ -1,55 +1,46 @@
-<!-- <div class="container my-3">
-  <div class="display-row justify-content-center">
-    <div class="col-10">
-      <h1><%= @dish.name %></h1>
-            <h1><%= @dish.base_price %></h1>
-
-
-      <% @dish.dish_ingredients.each do |dish_ingredient| %>
-<li style="list-style-type:none">
-          <div class container>
-          <%= dish_ingredient.ingredient.name %> -
-          Min Quantity=<%= dish_ingredient.min_quantity %>
-          Base Quantity=<%= dish_ingredient.base_quantity%>
-          Max Quantity=<%= dish_ingredient.max_quantity%>
-
-
-          </div>
-
-</li>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+      <h1>Edit the dish</h1>
+      <%= simple_form_for @dish  do |f| %>
+          <%= f.input :name %>
+          <%= f.input :base_price %>
+          <%= f.submit class: 'btn btn-primary'%>
       <% end %>
-
-            <div>
-            <%#= link_to 'Edit', edit_restaurant_dish_path(@dish), class: 'ml-3 text-warning' %>
-            <%#= link_to "Remove", restaurant_dish_path(@dish),
-                method: :delete,
-                data: { confirm: "Are you sure?" },
-                class: 'ml-3 text-danger' %>
-            <%#= link_to "See all dishes", restaurant_dishes_path %>
-
-            <%#= link_to "Add Ingredienst to the dish", new_dish_ingredient_path(@dish) %>
-
-
-          </div>
-
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="container">
-  <div class="display-row justify-content-center">
+  <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1><%= @dish.name %></h1>
-      <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
-        <%= f.input :ingredient, collection: @ingredients %>
-        <%= f.input :min_quantity %>
-        <%= f.input :base_quantity %>
-        <%= f.input :max_quantity %>
-        <%= f.submit class: 'btn btn-primary'%>
+      <h1>Edit dish ingredients</h1>
+      <%  @dish.dish_ingredients.each do |dish_ingredient| %>
+        <%= dish_ingredient.ingredient.name %>
+        <%= simple_form_for [@dish, dish_ingredient] do |f| %>
+          <%= f.input :min_quantity %>
+          <%= f.input :base_quantity %>
+          <%= f.input :max_quantity %>
+          <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
       <% end %>
-
     </div>
   </div>
-      <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
-
 </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <h1>Add dish ingredients</h1>
+        <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
+          <%= f.input :ingredient, collection: @restaurant.ingredients %>
+          <%= f.input :min_quantity %>
+          <%= f.input :base_quantity %>
+          <%= f.input :max_quantity %>
+          <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
+  </div>
+
