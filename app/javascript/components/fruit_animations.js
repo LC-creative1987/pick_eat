@@ -1,7 +1,7 @@
 const fruitAnimations = () => {
   const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
   // Select the veggie
-  const veggie = document.querySelector(".vegetable")
+
   const fruit = document.querySelector(".fruit")
   // Change the position of the veggie, randomly
 
