@@ -10,7 +10,6 @@ import "channels"
 import "controllers"
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 import { loadDynamicBannerText } from '../components/banner';
-import { veggieAnimations } from '../components/veggie_animations';
 import { fruitAnimations } from '../components/fruit_animations';
 
 Rails.start()
@@ -41,7 +40,6 @@ document.addEventListener('turbolinks:load', () => {
 
   initUpdateNavbarOnScroll();
   loadDynamicBannerText();
-  veggieAnimations();
   fruitAnimations ();
 
 })

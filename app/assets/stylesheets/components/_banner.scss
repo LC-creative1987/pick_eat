@@ -8,12 +8,24 @@
   background-position: center;
 }
 
+.fruit {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  height: 150px;
+  transition: all 2s ease;
+}
+
+
 .home-banner {
+  position: relative;
   background-size: cover;
   height: 100vh;
   color: #eee;
   text-align: center;
   padding-top: 40vh;
+  z-index: -2;
 h1 {
     color: white;
     font-weight: bold;

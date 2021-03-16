@@ -51,7 +51,7 @@ class DishesController < ApplicationController
 
   def update
     @dish.update(dish_params)
-    redirect_to dish_path(@dish)
+      redirect_to @restaurant
   end
 
   def destroy

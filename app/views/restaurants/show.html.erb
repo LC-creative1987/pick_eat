@@ -15,19 +15,36 @@
 
         <% if @restaurant.user == current_user %>
           <div class="d-flex justify-content-end align-items-center">
-            <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: "btn btn-primary" %>
-            <%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-            <%= link_to 'List Restaurant Ingredients', restaurant_ingredients_path(@restaurant), class: "btn btn-primary" %>
-            <%= link_to 'Add Ingredients for Restaurant', new_restaurant_ingredient_path(@restaurant), class: "btn btn-primary" %>
+            <div class=container>
+              <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant)%>
+            </div>
+            <div class=container>
+              <%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }%>
+
+            </div>
+
+            <div class=container>
+               <%= link_to 'Restaurant Ingredients', restaurant_ingredients_path(@restaurant)%>
+
+            </div>
+
+            <div class=container>
+              <%= link_to 'Add Ingredients', new_restaurant_ingredient_path(@restaurant) %>
+
+            </div>
           </div>
         <% end %>
       </div>
 
       <div class="card shadow-sm p-3 mb-5 bg-body rounded">
+        <div class="d-flex justify-content-center align-items-center">
         <h3 class="m-4">Menu</h3>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
         <% if @restaurant.user == current_user %>
-          <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant), class: "btn btn-primary" %>
+          <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant)%>
         <% end %>
+        </div>
         <% @dishes.each do |dish| %>
           <div class="card shadow-sm p-3 mb-5 bg-body rounded">
             <div>
@@ -35,27 +52,35 @@
             </div>
 
           <% if @restaurant.user != current_user %>
-            <div>
-            <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
-            </div>
-          <% else %>
-            <div>
-              <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-primary" %>
-              <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+            <div class="d-flex justify-content-end align-items-center">
+              <div class=container>
+                <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post %>
+              </div>
+           <% else %>
+              <div class=container>
+                <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get%>
+              </div>
+
+              <div class=container>
+                <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'} %>
+              </div>
             </div>
           <% end %>
 
-          <ul>
-            <% dish.dish_ingredients.each do |dish_ingredient| %>
-              <li><%= dish_ingredient.ingredient.name %></li>
-            <% end %>
-          </ul>
+          <div class="container p-3">
+            <ul>
+              <% dish.dish_ingredients.each do |dish_ingredient| %>
+                <li><%= dish_ingredient.ingredient.name %> - <%=  dish_ingredient.base_quantity %> <%= dish_ingredient.ingredient.unit %></li>
+
+              <% end %>
+            </ul>
+          </div>
 
           </div>
         <% end %>
       </div>
     </div>
   </div>
-  <%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-primary" %>
-  <%= link_to "My Restaurants", my_restaurants_path, class: "btn btn-primary" %>
+  <%= link_to "Back to all restaurants", restaurants_path %>
+  <%= link_to "My Restaurants", my_restaurants_path%>
 </div>
