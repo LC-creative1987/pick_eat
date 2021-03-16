@@ -8,6 +8,7 @@
   right: 0;
   left: 0;
   z-index: 999;
+  background-color: white;
 
   .navbar-wagon-link {
     color: white;
@@ -25,12 +26,17 @@
 
 
 .navbar-light .navbar-nav .nav-link {
-    color: white;
+    color: #563D7C;
 }
 
 .navbar-lewagon-white {
   background-color: white;
   .nav-link {
-    color: black !important;
+    color: #563D7C !important;
   }
+}
+
+.navbar-home{
+
+  background-color: transparent !important;
 }

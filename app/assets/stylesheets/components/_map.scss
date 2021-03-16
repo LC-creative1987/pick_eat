@@ -1,5 +1,15 @@
 .mapboxgl-popup {
   max-width: 200px;
+  position: relative;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 1px 2px grey;
+    padding: 28px 11px 18px;
+    pointer-events: auto;
+    border-color: #ad95d0;
+    border-style: solid;
+    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), image-url("https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80");
+
 }
 
 .mapboxgl-popup-content {
@@ -11,16 +21,18 @@
 
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 87px;
   width: 700px;
   color: #ef74751a;
 
+}
 
-  .h3 {
+h3, .h3 {
     font-size: 1.75rem;
-    color: dimgrey;
+        color: #ad95d0;
 }
-}
+
+
 
 .mapboxgl-ctrl-geocoder--input {
 
@@ -33,17 +45,6 @@
   border-radius: 37px;
 }
 
-.mapboxgl-popup-content {
-    position: relative;
-    background: #fff;
-    border-radius: 7px;
-    box-shadow: 0 1px 2px grey;
-    padding: 28px 11px 18px;
-    pointer-events: auto;
-    border-color: #ad95d0;
-    border-style: solid;
-    background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.1)), image-url("https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80");
-}
 
 .mapboxgl-map {
     font: 12px/20px Helvetica Neue,Arial,Helvetica,sans-serif;
