@@ -36,10 +36,10 @@
 
           <% if @restaurant.user != current_user %>
             <div>
+            <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
             </div>
           <% else %>
             <div>
-            <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
               <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-primary" %>
               <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-danger" %>
             </div>
