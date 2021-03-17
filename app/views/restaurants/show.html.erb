@@ -1,4 +1,5 @@
 <section>
+  <div class="background">
 
   <div class="container my-3">
     <div class="row justify-content-center">
@@ -38,7 +39,7 @@
         </div>
         <div class="card shadow-sm p-3 mb-4 bg-body rounded">
           <div class="d-flex justify-content-center">
-            <h3 class="m-4">Menu</h3>
+            <h2 class="m-4 h2">Menu</h2>
           </div>
           <% @dishes.each do |dish| %>
             <div class="card shadow-sm py-3 pl-5 pr-3 my-4 bg-body rounded">
@@ -50,7 +51,7 @@
 
                 <div>
                   <% if @restaurant.user != current_user %>
-                    <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
+                    <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn orange-button" %>
                   <% else %>
                     <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-secondary" %>
                     <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-secondary" %>
@@ -77,6 +78,7 @@
         <%# end %>
       </div>
     </div>
+  </div>
   </div>
 
 </section>
