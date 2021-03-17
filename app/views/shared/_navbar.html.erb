@@ -24,7 +24,7 @@
 
             <% if !current_user.restaurants.empty? %>
             <%= link_to "My Restaurants", my_restaurants_path, class: "dropdown-item" %>
-            <%= link_to "Update Ingredients Stock", edit_stock_path, class: "dropdown-item" %>
+            <%= link_to "Ingredient Stock", edit_stock_path, class: "dropdown-item" %>
             <% end %>
 
             <%= link_to "Add New Restaurant", new_restaurant_path, class: "dropdown-item" %>

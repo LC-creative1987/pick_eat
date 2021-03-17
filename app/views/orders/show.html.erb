@@ -2,7 +2,7 @@
 
   <div class="container mb-3 mt-4">
     <div class="d-flex justify-content-between align-items-center">
-      <h1>My basket</h1>
+      <h1 class="h2">My basket</h1>
       <%= link_to "back to all restaurants", restaurants_path, class: "btn purple-button" %>
     </div>
     <div class="row">
@@ -16,7 +16,7 @@
                   <div class="d-flex justify-content-between">
                     <div>
                       <h3><%= order_item.dish.name %></h3>
-                      <p>(<%= order_item.dish.restaurant.name %>)</p>
+                      <h6>(Restaurant: <%= order_item.dish.restaurant.name %>)</h6>
                     </div>
                     <div>
                       <%= link_to "Edit", order_item_path(order_item), class: "btn btn-secondary" %>
@@ -54,8 +54,10 @@
             </ul>
           </div>
         <% end %>
-        Total Price: AED <%= @total_price %>
-        <%= link_to "Checkout", ingredient_decrease_stock_quantity_path(@order), class: "btn btn-success" %>
+        <div class="d-flex justify-content-between align-items-center">
+          <h5>Total Price: AED <%= @total_price %></h5>
+          <%= link_to "Checkout", ingredient_decrease_stock_quantity_path(@order), class: "btn btn-success" %>
+        </div>
       </div>
     </div>
   </div>
