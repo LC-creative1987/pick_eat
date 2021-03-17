@@ -1,26 +1,25 @@
 <section>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Create a new ingredient for
-        <%= @restaurant.name %>
-      </h1>
+  <div class="container my-3">
+    <div class="special-row justify-content-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+        <h1>Create a new ingredient for
+          <%= @restaurant.name %> Restaurant
+        </h1>
 
-      <%= simple_form_for  [@restaurant, @ingredient]  do |f| %>
+        <%= simple_form_for  [@restaurant, @ingredient]  do |f| %>
           <%= f.input :name %>
           <%= f.input :unit %>
           <%= f.input :change_increment %>
           <%= f.input :cost %>
           <%= f.input :price %>
           <%= f.input :stock_quantity %>
-
           <%= f.submit class: 'btn btn-primary'%>
-      <% end %>
+        <% end %>
+      </div>
     </div>
-    <%= link_to "Back to the all ingredients", restaurant_ingredients_path(@restaurant), class: "btn btn-primary" %>
+      <%= link_to "Back to all ingredients", restaurant_ingredients_path(@restaurant), class: "btn purple-button" %>
   </div>
-</div>
 
 </section>
 

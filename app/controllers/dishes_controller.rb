@@ -30,7 +30,8 @@ class DishesController < ApplicationController
     @dish_ingredient = DishIngredient.new
 
     if @dish.save
-      redirect_to restaurant_dish_path(@restaurant, @dish)
+      redirect_to new_dish_dish_ingredient_path(@dish)
+      # restaurant_dish_path(@restaurant, @dish)
     else
       render :new
     end
@@ -51,12 +52,13 @@ class DishesController < ApplicationController
 
   def update
     @dish.update(dish_params)
-      redirect_to @restaurant
+      redirect_to edit_dish_path(@dish)
   end
 
   def destroy
+    @restaurant = @dish.restaurant
     @dish.destroy
-    redirect_to restaurant_dishes_path
+    redirect_to restaurant_path(@restaurant)
   end
 
   private
