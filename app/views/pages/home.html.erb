@@ -8,7 +8,7 @@
 
   <h1><span id="banner-typed-text"></span></h1>
  <!--  <h3>Do you want to customize your own meal with your own preferences?</h3> -->
-  <p><em>"You are in the right place, pick your ingredients and <strong> customize your own meal"</strong></em></p>
+  <p><em>"You are in the right place, pick your ingredients and <strong> customize your own meals"</strong></em></p>
   <%= form_tag restaurants_path, method: :get do %>
   <%= text_field_tag :query,
   params[:query],
@@ -21,21 +21,86 @@
 </div>
 
 <div class="container">
-    <div class="content text-center">
-      <h4><strong>At Pick Eat, we have everything for our picky eater</strong></h4>
-      <p>Bring you creativity to your plate, build delicious meal, it save your time as well as the restaurants and helps prevent food waste</p>
-
-<br * 6 >
-<div class="value d-flex justify-content-between">
-      <p>FAST</p>
-      <p>CREATIVE</p>
-      <p>ECO-FRIENDLY</p>
-
+  <div class="content text-center">
+    <h4><strong>At Pick Eat, we have everything for our picky eater</strong></h4>
+    <p>Bring you creativity to your plate, build delicious meal, it saves time for you and the restaurants, and helps prevent food waste</p>
+<br> <br>
+    <div class="value d-flex justify-content-between">
+      <p>
+        <i class="fas fa-shipping-fast"></i>
+        FAST
+      </p>
+      <p>
+        <i class="fas fa-braille"></i>
+        CREATIVE
+      </p>
+      <p>
+        <i class="fas fa-leaf ml-2"></i>
+        ECO-FRIENDLY
+      </p>
     </div>
   </div>
-</div>
 
-<br * 20 >
+  <h4 class="mb-5"><strong>Our favorites selections</strong></h4>
+
+  <div class="cards-list d-flex justify-content-between">
+
+    <div class="card-product 1 mb-5">
+      <div class="card_image"> <img src="https://images.unsplash.com/photo-1604259597308-5321e8e4789c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=992&q=80" /> </div>
+      <div class="card_title title-white">
+        <p>Poke Bowl</p>
+      </div>
+    </div>
+
+    <div class="card-product 2 mb-5">
+      <div class="card_image">
+        <img src="https://images.unsplash.com/photo-1490323948794-cc6dde6e8f5b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1026&q=80" />
+      </div>
+      <div class="card_title title-white">
+        <p>Acai Bowl</p>
+      </div>
+    </div>
+
+    <div class="card-product 3 mb-5">
+      <div class="card_image">
+        <img src="https://images.unsplash.com/photo-1598866594230-a7c12756260f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=911&q=80" />
+      </div>
+      <div class="card_title">
+        <p>Pasta</p>
+      </div>
+    </div>
+    <div class="card-product 4 mb-5">
+      <div class="card_image">
+        <img src="https://images.unsplash.com/photo-1581873372796-635b67ca2008?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+      </div>
+      <div class="card_title title-black">
+        <p>Pizza</p>
+      </div>
+    </div>
+
+
+
+    <div class="card-product 5 mb-5">
+      <div class="card_image">
+        <img src="https://images.unsplash.com/photo-1593189229346-9b7365e09777?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" />
+      </div>
+      <div class="card_title title-black">
+        <p>Sushi</p>
+      </div>
+    </div>
+
+
+    <div class="card-product 6 mb-5">
+      <div class="card_image">
+        <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" />
+      </div>
+      <div class="card_title title-black">
+        <p>Coffee</p>
+      </div>
+    </div>
+  </div>
+
+
 
 
 <!-- <div id="user_address"></div> -->
