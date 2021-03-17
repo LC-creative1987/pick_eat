@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :dishes do
-      resources :dish_ingredients
+    resources :dish_ingredients
   end
 
   resources :dish_ingredients, only: [:update]

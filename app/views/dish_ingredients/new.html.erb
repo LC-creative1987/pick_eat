@@ -1,0 +1,19 @@
+<section>
+
+  <div class="container my-3">
+    <div class="special-row justify-content-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+        <h1>Add dish ingredients</h1>
+        <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
+          <%= f.input :ingredient, collection: @restaurant.ingredients %>
+          <%= f.input :min_quantity %>
+          <%= f.input :base_quantity %>
+          <%= f.input :max_quantity %>
+          <%= f.submit class: 'btn btn-primary'%>
+        <% end %>
+      </div>
+    </div>
+    <%= link_to "Back to the Restaurant", restaurant_path(@restaurant), class: "btn purple-button" %>
+  </div>
+
+</section>

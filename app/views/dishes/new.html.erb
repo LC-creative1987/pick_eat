@@ -1,35 +1,17 @@
 <section>
 
-<div class="container">
-  <div class="special-row justify-content-center">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Create a new dish</h1>
-      <%= simple_form_for [@restaurant, @dish]  do |f| %>
+  <div class="container">
+    <div class="special-row justify-content-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+        <h1>Create a new dish</h1>
+        <%= simple_form_for [@restaurant, @dish]  do |f| %>
           <%= f.input :name %>
           <%= f.input :base_price %>
-          <%= f.submit class: 'btn btn-primary'%>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<% if @dish.save %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <h1>Add dish ingredients</h1>
-        <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
-          <%= f.input :ingredient, collection: @ingredients %>
-          <%= f.input :min_quantity %>
-          <%= f.input :base_quantity %>
-          <%= f.input :max_quantity %>
           <%= f.submit class: 'btn btn-primary'%>
         <% end %>
       </div>
     </div>
-    <%= link_to "Back to the Restaurant", restaurant_path(@restaurant), class: "btn btn-primary" %>
   </div>
-<% end %>
 
 </section>
 
