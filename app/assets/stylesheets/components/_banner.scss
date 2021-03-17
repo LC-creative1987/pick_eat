@@ -26,7 +26,8 @@
   text-align: center;
   padding-top: 40vh;
   z-index: -2;
-h1 {
+
+  h1 {
     color: white;
     font-weight: bold;
     font-size: 45px;
@@ -35,9 +36,9 @@ h1 {
   }
 
   h3{
-
     color: white;
   }
+
   p {
     color: white;
     opacity: .8;
@@ -45,8 +46,8 @@ h1 {
     font-weight: lighter;
     margin-bottom: 32px;
     text-shadow: 1px 1px 5px black;
-
   }
+
   .btn {
     padding: 9px 32px;
     background-color: #563D7C;
@@ -57,16 +58,10 @@ h1 {
   .ml3 {
   font-weight: 900;
   font-size: 3.5em;
+  }
 }
-
-}
-
-
-
 
 
 #banner-typed-text {
-
-font-weight: bolder;
-
+  font-weight: bolder;
 }

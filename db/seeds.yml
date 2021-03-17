@@ -112,6 +112,11 @@ dishes:
     base_price: "2"
     restaurant_slug: blue_sky_thai_food
     slug: tom_yum
+  - name: "Laura's Salad"
+    base_price: "5"
+    restaurant_slug: blue_sky_thai_food
+    slug: lauras_salad
+
 
 
 ingredients:
@@ -192,7 +197,7 @@ ingredients:
     change_increment: "1"
     cost: "1"
     price: "1"
-    stock_quantity: "432387"
+    stock_quantity: "0"
     restaurant_slug: blue_sky_thai_food
     slug: red_thai_chili
   - name: "Grated papaya"
@@ -211,6 +216,22 @@ ingredients:
     stock_quantity: "300"
     restaurant_slug: blue_sky_thai_food
     slug: prawns
+  - name: "Spinach lettuces"
+    unit: "tablespoon"
+    change_increment: "2"
+    cost: "2"
+    price: "3"
+    stock_quantity: "300"
+    restaurant_slug: blue_sky_thai_food
+    slug: spinach_lettuces
+  - name: "Parmesan cheese"
+    unit: "teaspoon"
+    change_increment: "1"
+    cost: "2"
+    price: "3"
+    stock_quantity: "300"
+    restaurant_slug: blue_sky_thai_food
+    slug: parmesan_cheese
 
 
 dish_ingredients:
@@ -299,9 +320,28 @@ dish_ingredients:
     max_quantity: "7"
     dish_slug: tom_yum
     ingredient_slug: prawns
+  - base_quantity: "30"
+    min_quantity: "25"
+    max_quantity: "35"
+    dish_slug: lauras_salad
+    ingredient_slug: spinach_lettuces
   - base_quantity: "3"
     min_quantity: "0"
     max_quantity: "5"
-    dish_slug: tom_yum
-    ingredient_slug: green_onions
-
+    dish_slug: lauras_salad
+    ingredient_slug: tomato
+  - base_quantity: "1"
+    min_quantity: "0"
+    max_quantity: "4"
+    dish_slug: lauras_salad
+    ingredient_slug: garlic
+  - base_quantity: "2"
+    min_quantity: "0"
+    max_quantity: "3"
+    dish_slug: lauras_salad
+    ingredient_slug: egg
+  - base_quantity: "5"
+    min_quantity: "0"
+    max_quantity: "8"
+    dish_slug: lauras_salad
+    ingredient_slug: prawns
