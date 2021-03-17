@@ -1,40 +1,40 @@
 
 <section>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Create a new dish</h1>
-      <%= simple_form_for @dish  do |f| %>
+  <div class="container my-3">
+    <div class="special-row justify-content-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+        <h1>Edit the dish</h1>
+        <%= simple_form_for @dish  do |f| %>
           <%= f.input :name %>
           <%= f.input :base_price %>
           <%= f.submit class: 'btn btn-primary'%>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>Edit dish ingredients</h1>
-      <%  @dish.dish_ingredients.each do |dish_ingredient| %>
-        <%= dish_ingredient.ingredient.name %>
-        <%= simple_form_for [@dish, dish_ingredient] do |f| %>
-          <%= f.input :min_quantity %>
-          <%= f.input :base_quantity %>
-          <%= f.input :max_quantity %>
-          <%= f.submit class: 'btn btn-primary'%>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-        <h1>Add dish ingredients</h1>
+
+    <% if @dish.dish_ingredients.present? %>
+      <div class="special-row justify-content-center">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+          <h1>Edit dish ingredients</h1>
+          <% @dish.dish_ingredients.each do |dish_ingredient| %>
+            <%= dish_ingredient.ingredient.name %>
+            <%= simple_form_for [@dish, dish_ingredient] do |f| %>
+              <%= f.input :min_quantity %>
+              <%= f.input :base_quantity %>
+              <%= f.input :max_quantity %>
+              <%= f.submit class: 'btn btn-primary'%>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+
+    <div class="special-row justify-content-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1 mt-3">
+        <h1>Add ingredients to the dish</h1>
         <%= simple_form_for [@dish, @dish_ingredient] do |f| %>
           <%= f.input :ingredient, collection: @restaurant.ingredients %>
           <%= f.input :min_quantity %>
@@ -44,7 +44,7 @@
         <% end %>
       </div>
     </div>
-    <%= link_to "Back to the dishes", restaurant_dishes_path(@restaurant), class: "btn btn-primary" %>
+    <%= link_to "Back to the Restaurant", restaurant_path(@restaurant), class: "btn purple-button" %>
   </div>
 
 </section>

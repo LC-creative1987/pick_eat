@@ -4,7 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
     if !params[:query].present? || params[:query].empty?
-      @restaurants = Restaurant.all
+      @restaurants = Restaurant.geocoded
     else
       @restaurants = Restaurant.near(params[:query], 10)
     end
@@ -18,6 +18,8 @@ class RestaurantsController < ApplicationController
       }
     end
   end
+
+
 
   def show
     @restaurant = Restaurant.find(params[:id])
@@ -56,7 +58,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to my_restaurants_path
   end
 
   private

@@ -1,73 +1,83 @@
-
 <section>
 
-<div class="container my-3">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-10 cil-lg-8">
-      <div class="card shadow-sm p-3 mb-5 bg-body rounded d-flex justify-content-end align-items-center">
-        <h1><%= @restaurant.name %></h1>
-        <h5>Address: <%= @restaurant.address %></h5>
-        <h5>Phone_number: <%= @restaurant.phone_number %></h5>
-        <h5>Cuisine: <%= @restaurant.cuisine %></h5>
+  <div class="container my-3">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-lg-10">
+        <div class="card shadow-sm p-3 mb-5 bg-body rounded align-items-center">
+          <h1><%= @restaurant.name %></h1>
+          <h5>Address: <%= @restaurant.address %></h5>
+          <h5>Phone_number: <%= @restaurant.phone_number %></h5>
+          <h5>Cuisine: <%= @restaurant.cuisine %></h5>
 
-        <% if @restaurant.photo.attached? %>
-          <%= cl_image_tag @restaurant.photo.key, height: 250, crop: :fill %>
-        <% else %>
-          <%= image_tag 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', height: 250, crop: :fill %>
-        <% end %>
-
-        <% if @restaurant.user == current_user %>
-          <div class="d-flex justify-content-end align-items-center">
-            <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant)%>
-            <%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }%>
-            <%= link_to 'Restaurant Ingredients', restaurant_ingredients_path(@restaurant)%>
-            <%= link_to 'Add Ingredients', new_restaurant_ingredient_path(@restaurant) %>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="card shadow-sm p-3 mb-5 bg-body rounded">
-        <div class="d-flex justify-content-center">
-          <h3 class="m-4">Menu</h3>
-        </div>
-          <% if @restaurant.user == current_user %>
-            <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant)%>
+          <% if @restaurant.photo.attached? %>
+            <%= cl_image_tag @restaurant.photo.key, height: 250, crop: :fill %>
+          <% else %>
+            <%= image_tag 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80', height: 250, crop: :fill %>
           <% end %>
-        <% @dishes.each do |dish| %>
-          <div class="card shadow-sm py-3 px-5 mb-5 bg-body rounded">
-            <div class="d-flex justify-content-between align-items-center mt-1">
 
-              <div>
-                <h4><%= dish.name %></h4>
-              </div>
-
-              <div>
-                <% if @restaurant.user != current_user %>
-                    <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
-                <% else %>
-                    <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get%>
-                    <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'} %>
-                <% end %>
-              </div>
+          <% if @restaurant.user == current_user %>
+            <div class=" align-items-center mt-3">
+              <%= link_to 'Edit Restaurant', edit_restaurant_path(@restaurant), class: "btn btn-secondary" %>
+              <%= link_to 'Delete Restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
             </div>
+            <%= link_to 'All Ingredients', restaurant_ingredients_path(@restaurant), class: "btn btn-secondary mt-1" %>
+          <% end %>
+        </div>
 
-
-            <ul>
-              <% dish.dish_ingredients.each do |dish_ingredient| %>
-                <li><%= dish_ingredient.ingredient.name %> </li>
-              <% end %>
-            </ul>
-
+        <div class="d-flex justify-content-between">
+          <% if @restaurant.user == current_user %>
+          <div>
+            <%= link_to 'Add Ingredient', new_restaurant_ingredient_path(@restaurant), class: "btn orange-button mb-1" %>
           </div>
-        <% end %>
+          <% end %>
+          <% if @restaurant.user == current_user && @restaurant.ingredients.present? %>
+            <div class="mb-3">
+              <%= link_to 'Add a dish to the menu', new_restaurant_dish_path(@restaurant), class: "btn orange-button" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card shadow-sm p-3 mb-4 bg-body rounded">
+          <div class="d-flex justify-content-center">
+            <h3 class="m-4">Menu</h3>
+          </div>
+          <% @dishes.each do |dish| %>
+            <div class="card shadow-sm py-3 pl-5 pr-3 my-4 bg-body rounded">
+              <div class="d-flex justify-content-between align-items-center mt-1">
+
+                <div>
+                  <h4><%= dish.name %></h4>
+                </div>
+
+                <div>
+                  <% if @restaurant.user != current_user %>
+                    <%= link_to "Customize the Dish", order_items_path(@dish, format: "#{dish.id}"), method: :post, class: "btn btn-primary" %>
+                  <% else %>
+                    <%= link_to "Edit the Dish", edit_dish_path(dish), method: :get, class: "btn btn-secondary" %>
+                    <%= link_to "Delete the Dish", dish_path(dish), method: :delete, data:{confirm: 'Are you sure?'}, class: "btn btn-secondary" %>
+                  <% end %>
+                </div>
+              </div>
+
+              <ul>
+                <% dish.dish_ingredients.each do |dish_ingredient| %>
+                  <li><%= dish_ingredient.ingredient.name %></li>
+                <% end %>
+              </ul>
+
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-10 col-lg-10">
+        <%= link_to "Back to all restaurants", restaurants_path, class: "btn purple-button" %>
+        <%# if @restaurant.user == current_user %>
+          <%#= link_to "My Restaurants", my_restaurants_path, class: "btn btn-secondary" %>
+        <%# end %>
       </div>
     </div>
   </div>
-  <%= link_to "Back to all restaurants", restaurants_path, class: "btn btn-secondary" %>
-  <% if @restaurant.user == current_user %>
-    <%= link_to "My Restaurants", my_restaurants_path, class: "btn btn-secondary" %>
-  <% end %>
-</div>
 
 </section>
 
