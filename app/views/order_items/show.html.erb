@@ -121,8 +121,8 @@
       <% end %>
 
       <div class="d-flex justify-content-between">
-        <%= link_to "Add to order", order_path(@order_item.order), class: "btn orange-button my-1" %>
-        <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn purple-button mb-1" %>
+        <%= link_to "Add to order", order_path(@order_item.order), class: "btn orange-button my-1 mb-4" %>
+        <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn purple-button mb-4" %>
       </div>
     </div>
   </div>
