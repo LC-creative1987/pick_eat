@@ -1,8 +1,8 @@
 <section>
 
 <div class="container my-3">
-  <div class="row justify-content-center">
-    <div class="col-8">
+  <div class="row-background justify-content-center">
+    <div class="col-12">
       <ul class="list-group list-group-flush">
 
         <h1><%= @order_item.dish.name %></h1>
@@ -18,30 +18,32 @@
                 </div>
               <% end %>
             </div>
+
+
             <div class="d-flex justify-content-between align-items-center">
               <% if customized_ingredient.dish_ingredient.ingredient.stock_quantity < customized_ingredient.dish_ingredient.ingredient.change_increment %>
                 <p>Sorry, this ingredient is out of stock</p>
               <% else %>
-                <div>
+                <div class="w-25 border">
                   <%= customized_ingredient.dish_ingredient.ingredient.change_increment %>
                   <%= customized_ingredient.dish_ingredient.ingredient.unit %>
 
                   (AED <%= customized_ingredient.dish_ingredient.ingredient.price %>)
                 </div>
 
-                <div>
+                <div class="quantity border text-center w-50" >
                   <% if customized_ingredient.dish_ingredient.min_quantity <= customized_ingredient.dish_ingredient.ingredient.stock_quantity %>
                     <span class="mx-1">(min) <%= customized_ingredient.dish_ingredient.min_quantity %></span>
                   <% else %>
                     <span class="mx-1">(min) <%= customized_ingredient.dish_ingredient.ingredient.stock_quantity %></span>
                   <% end %>
-                  <%= link_to customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-secondary" do %>
+                  <%= link_to customized_ingredient_decrease_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn item-button" do %>
                     <i class="fas fa-angle-double-down"></i>
                   <% end %>
 
                   <span class="current-quantity mx-1"><%= customized_ingredient.quantity%></span>
 
-                  <%= link_to customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn btn-secondary" do %>
+                  <%= link_to customized_ingredient_increase_amount_path(customized_ingredient), method: :patch, remote: true, class: "btn item-button" do %>
                     <i class="fas fa-angle-double-up"></i>
                   <% end %>
                   <% if customized_ingredient.dish_ingredient.max_quantity <= customized_ingredient.dish_ingredient.ingredient.stock_quantity %>
@@ -67,7 +69,7 @@
                 <% if special_request.ingredient.stock_quantity >= special_request.ingredient.change_increment %>
                   AED <span class="ingredient_price"><%= special_request.item_price %></span>
                 <% end %>
-                <%= link_to "X", order_item_special_request_path(special_request), method: :delete, remote: true, class: "btn btn-secondary" %>
+                <%= link_to "X", order_item_special_request_path(special_request), method: :delete, remote: true, class: "btn item-button" %>
               </div>
 
             </div>
@@ -85,13 +87,13 @@
 
                 <div>
                   <span class="mx-1">(min) <%= 0 %></span>
-                  <%= link_to special_request_decrease_amount_path(special_request), method: :patch, remote: true, class: "btn btn-secondary" do %>
+                  <%= link_to special_request_decrease_amount_path(special_request), method: :patch, remote: true, class: "btn item-button" do %>
                     <i class="fas fa-angle-double-down"></i>
                   <% end %>
 
                   <span class="current-quantity mx-1"><strong><%= special_request.quantity %></strong></span>
 
-                  <%= link_to special_request_increase_amount_path(special_request), method: :patch, remote: true, class: "btn btn-secondary" do %>
+                  <%= link_to special_request_increase_amount_path(special_request), method: :patch, remote: true, class: "btn item-button" do %>
                     <i class="fas fa-angle-double-up"></i>
                   <% end %>
                   <% if 4 * special_request.ingredient.change_increment <= special_request.ingredient.stock_quantity %>
@@ -113,11 +115,11 @@
 
       <%= simple_form_for([ @order_item, @special_request ], remote: true) do |f| %>
         <%= f.input :ingredient, collection: @ingredients %>
-        <%= f.button :submit, 'Add', class: "btn btn-outline-secondary" %>
+        <%= f.button :submit, 'Add', class: "btn orange-button" %>
       <% end %>
 
       <div class="d-flex justify-content-between">
-        <%= link_to "Add to order", order_path(@order_item.order), class: "btn purple-button"  %>
+        <%= link_to "Add to order", order_path(@order_item.order), class: "btn orange-button"  %>
         <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn purple-button" %>
       </div>
     </div>
