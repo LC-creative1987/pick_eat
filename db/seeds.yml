@@ -57,6 +57,43 @@ restaurants:
     photo_url: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1335&q=80"
     user_slug: henry
     slug: atlantic_fish_co
+  - name: "Spicy Pizza Kitchen"
+    address: "421 Erdman Mission - Abu Dhabi"
+    phone_number: "+987928734672"
+    cuisine: "Italian"
+    photo_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    user_slug: henry
+    slug: spicy_pizza_kitchen
+  - name: "Blue Collar"
+    address: "One&Only Royal Mirage - Dubai"
+    phone_number: "+987928734672"
+    cuisine: "Thai"
+    photo_url: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    user_slug: henry
+    slug: blue_collar
+  - name: "Little Sheep"
+    address: "Dubai Marina, Skydive Dubai Drop Zone - King Salman Bin Abdulaziz Al Saud St - Dubai"
+    phone_number: "+987928734672"
+    cuisine: "Indian"
+    photo_url: "https://images.unsplash.com/photo-1606851181064-b7507b24377c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    user_slug: henry
+    slug: little_sheep
+  - name: "Golden Burgers"
+    address: "23a Jumeirah Street - Dubai Ladies Club - Dubai"
+    phone_number: "+987928734672"
+    cuisine: "Indian"
+    photo_url: "https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
+    user_slug: henry
+    slug: golden_burgers
+  - name: "Rice Corner"
+    address: "Dubai Mall - Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai"
+    phone_number: "+987928734672"
+    cuisine: "French"
+    photo_url: "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+    user_slug: henry
+    slug: rice_corner
+
+
 
 dishes:
   - name: "Pad Thai"
@@ -142,7 +179,7 @@ ingredients:
     stock_quantity: "50"
     restaurant_slug: blue_sky_thai_food
     slug: tomato
-  - name: "garlic"
+  - name: "Garlic"
     unit: "teaspoon"
     change_increment: "1"
     cost: "1"
@@ -150,7 +187,7 @@ ingredients:
     stock_quantity: "200000"
     restaurant_slug: blue_sky_thai_food
     slug: garlic
-  - name: "red Thai chili"
+  - name: "Red Thai chili"
     unit: "teaspoon"
     change_increment: "1"
     cost: "1"
