@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  CUISINES = ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French"]
+  CUISINES = ["Lebanese", "Indian", "Italian", "Thai", "Chinese", "French", "Azerbaijani", "Moroccan", "International", "Brasilian", "British", "Russian", "Asian", "Spanish", "Portoguese", "Japanese", "Mexican", "Arabic"]
   belongs_to :user
   has_many :dishes, dependent: :destroy
   has_many :ingredients, dependent: :destroy

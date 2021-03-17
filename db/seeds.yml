@@ -31,56 +31,56 @@ restaurants:
     slug: blue_sky_thai_food
   - name: "California Shack"
     address: "Bluewaters Island - Dubai"
-    phone_number: "+987398742987"
+    phone_number: "+0549843468279"
     cuisine: "Indian"
     photo_url: "https://images.unsplash.com/photo-1512838154171-97c4fa39f33b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: zohrab
     slug: california_shack
   - name: "Ember Restaurant"
     address: "Dubai Festival City - Dubai"
-    phone_number: "+798273947942"
+    phone_number: "+267465036343"
     cuisine: "Italian"
     photo_url: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: henry
     slug: ember_restaurant
   - name: "Zoftig Eatery"
     address: "Motor City - Dubai"
-    phone_number: "+879472983423"
+    phone_number: "+0274326485335"
     cuisine: "Thai"
     photo_url: "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=900&q=60"
     user_slug: henry
     slug: zoftig_eatery
   - name: "Atlantic Fish Co"
     address: "The Dubai Fountain, D 55, Dubai, Dubai, United Arab Emirates"
-    phone_number: "+987928734672"
+    phone_number: "+44830265945454"
     cuisine: "French"
     photo_url: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1335&q=80"
     user_slug: henry
     slug: atlantic_fish_co
   - name: "Spicy Pizza Kitchen"
-    address: "Mall of Emirates"
-    phone_number: "+987928734672"
+    address: "Flora Hotel Al Barsha, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+154572359682653597"
     cuisine: "Italian"
     photo_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: henry
     slug: spicy_pizza_kitchen
   - name: "Blue Collar"
     address: "Festival Plaza, Jebel Ali, Dubai, Dubai, United Arab Emirates"
-    phone_number: "+987928734672"
+    phone_number: "+121546535631"
     cuisine: "Thai"
     photo_url: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: henry
     slug: blue_collar
   - name: "Little Sheep"
     address: "Dubai Marina Mall, Dubai Marina, Dubai, Dubai, United Arab Emirates"
-    phone_number: "+987928734672"
+    phone_number: "+4542323121"
     cuisine: "Indian"
     photo_url: "https://images.unsplash.com/photo-1606851181064-b7507b24377c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: henry
     slug: little_sheep
   - name: "Golden Burgers"
     address: "Dubai Offshore Sailing Club, Jumeirah Rd., Dubai, Dubai, United Arab Emirates"
-    phone_number: "+987928734672"
+    phone_number: "+1454852154535"
     cuisine: "Indian"
     photo_url: "https://images.unsplash.com/photo-1497888329096-51c27beff665?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80"
     user_slug: henry
@@ -92,6 +92,134 @@ restaurants:
     photo_url: "https://images.unsplash.com/photo-1496412705862-e0088f16f791?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
     user_slug: henry
     slug: rice_corner
+  - name: "Sakura"
+    address: "Mövenpick Hotel Jumeirah Lakes Towers, Cluster A, Jumeirah Lakes Towers, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+987928734672"
+    cuisine: "Japanese"
+    photo_url: "https://images.unsplash.com/photo-1587913956756-4fcf4833241d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3456&q=80"
+    user_slug: henry
+    slug: sakura
+  - name: "Blossom"
+    address: "Grand Millennium, Barsha Heights, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+26458962562"
+    cuisine: "French"
+    photo_url: "https://images.unsplash.com/photo-1614104030967-5ca61a54247b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3024&q=80"
+    user_slug: henry
+    slug: rice_corner
+  - name: "Voyage"
+    address: "Ibis Hotel, Next to Emirates Mall, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+5462468595232"
+    cuisine: "International"
+    photo_url: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+    user_slug: henry
+    slug: viyage
+  - name: "Pad Thai"
+    address: "Dubai Marina Walk, Dubai Marina, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+2654862382151"
+    cuisine: "Asian"
+    photo_url: "https://images.unsplash.com/photo-1598514983318-2f64f8f4796c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=3750&q=80"
+    user_slug: henry
+    slug: pad_thai
+  - name: "24 Tacos"
+    address: "Al Qouz Mall, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+512165632323"
+    cuisine: "Mexican"
+    photo_url: "https://images.unsplash.com/photo-1582169296194-e4d644c48063?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1806&q=80"
+    user_slug: henry
+    slug: tacos
+  - name: "Next Corner"
+    address: "Hyatt Regency, 20th Street Dubai Healthcare City Bur Dubai, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+541215411221212"
+    cuisine: "International"
+    photo_url: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80"
+    user_slug: henry
+    slug: next_corner
+  - name: "Verona"
+    address: "Dubai Marina Walk, Dubai Marina, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+656562326266"
+    cuisine: "Italian"
+    photo_url: "https://images.unsplash.com/photo-1520690594286-1aadf7e7af36?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=3750&q=80"
+    user_slug: henry
+    slug: verona
+  - name: "Bordoux"
+    address: "Club Emirates Hills, Emirates Hills, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+658451232923"
+    cuisine: "French"
+    photo_url: "https://images.unsplash.com/photo-1527324688151-0e627063f2b1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+    user_slug: henry
+    slug: bordoux
+  - name: "Kalinka"
+    address: "Pearl Jumeirah, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+987928734672"
+    cuisine: "Russian"
+    photo_url: "https://images.unsplash.com/photo-1513442542250-854d436a73f2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1716&q=80"
+    user_slug: henry
+    slug: kalinka
+  - name: "Dolma"
+    address: "Dubai Eye, Dubai, United Arab Emirates"
+    phone_number: "+659323264515"
+    cuisine: "Azerbaijani"
+    photo_url: "https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80"
+    user_slug: henry
+    slug: dolma
+  - name: "Puddington"
+    address: "Jumeirah Beach Hotel, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+556465321212"
+    cuisine: "British"
+    photo_url: "https://images.unsplash.com/photo-1484723091739-30a097e8f929?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1547&q=80"
+    user_slug: henry
+    slug: puddington
+  - name: "Madrid"
+    address: "Marriott International / Ritz Carlton Hotel Company L.L.C, Level 6 6 Emaar Square, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+54542512151"
+    cuisine: "Spanish"
+    photo_url: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=3750&q=80"
+    user_slug: henry
+    slug: madrid
+  - name: "Casablanca"
+    address: "Sheraton Mall of the Emirates Hotel, Sheikh Zayed Rd, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+26254542852"
+    cuisine: "Moroccan"
+    photo_url: "https://images.unsplash.com/photo-1473093226795-af9932fe5856?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3685&q=80"
+    user_slug: henry
+    slug: casablanca
+  - name: "Great Wall"
+    address: "Hilton Garden Inn, 22nd St, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+4254352512332"
+    cuisine: "Chinese"
+    photo_url: "https://images.unsplash.com/photo-1554980291-c3e7cea75872?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3686&q=80"
+    user_slug: henry
+    slug: great_wall
+  - name: "Lissabon"
+    address: "The Ritz-Carlton, Gate Village, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+548632151521"
+    cuisine: "Portoguese"
+    photo_url: "https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=3648&q=80"
+    user_slug: henry
+    slug: lissabon
+  - name: "Rio Rio"
+    address: "Dubai Financial Market (DFM), Dubai World Trade Center, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+526535152326"
+    cuisine: "Brasilian"
+    photo_url: "https://images.unsplash.com/photo-1546039907-7fa05f864c02?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1400&q=80"
+    user_slug: henry
+    slug: rio_rio
+  - name: "Mexi Deli"
+    address: "Four Seasons Resort Dubai at Jumeirah Beach, Jumeirah Beach Road, Jumeirah 2, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+987928734672"
+    cuisine: "Mexican"
+    photo_url: "https://images.unsplash.com/photo-1613744013720-4f505ce31735?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3668&q=80"
+    user_slug: henry
+    slug: mexi_deli
+  - name: "Al Qurm"
+    address: "Dubai Frame, Zabeel Park, Dubai, Dubai, United Arab Emirates"
+    phone_number: "+458465232002"
+    cuisine: "Arabic"
+    photo_url: "https://images.unsplash.com/photo-1559847844-5315695dadae?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3740&q=80"
+    user_slug: henry
+    slug: al_qurm
+
+
 
 
 
