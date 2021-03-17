@@ -1,18 +1,76 @@
-<section>
+<!-- <section>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <article class="blog-card">
+          <div class="blog-card__background">
+            <div class="card__background--wrapper">
+              <div class="card__background--main" style="background-image: url('https://images.unsplash.com/photo-1513612254505-fb553147a2e8?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80')">
+                <div class="card__background--layer"></div>
+              </div>
+            </div>
+          </div>
 
-<div class="container">
-  <div class="card">
-    <h1>Thank you for your order</h1>
-    <h2>Your order will arrive soon !!!</h2>
-    <% @order.order_items.each do |order_item| %>
-      <h3><%= order_item.dish.name %></h3>
-    <% end %>
+          <div class="blog-card__info">
+            <h5>Thank you for ordering with us, your order will arrive soon!!!</h5>
+            <% @order.order_items.each do |order_item| %>
+              <h3><%= order_item.dish.name %></h3>
+            <% end %>
 
-    <%= link_to order_item_path(@order, from: "checkout"), method: :delete, class: "btn btn-secondary" do %>
-      <i class="far fa-thumbs-up"></i>
-    <% end %>
+            <p>
+              <a href="#" class="icon-link mr-3"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" class="icon-link"><i class="fab fa-instagram"></i></a>
+            </p>
+            <p>We look forward to seeing you soon</p>
+
+            <%= link_to "hi", order_item_path(@order, from: "checkout"), method: :delete %>
+            <!-- <i class="btn-icon fa fa-long-arrow-right"></i> -->
+            <%# end %>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+</section> -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <article class="blog-card">
+        <div class="blog-card__background">
+          <div class="card__background--wrapper">
+            <div class="card__background--main" style="background-image: url('https://images.unsplash.com/photo-1554675427-1d637bdb5a12?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=673&q=80');">
+              <div class="card__background--layer"></div>
+            </div>
+          </div>
+        </div>
+        <div class="blog-card__head">
+          <span class="date__box">
+            <span class="date__day">THANK YOU FROM</span>
+            <span class="date__month">PICK EAT TEAM</span>
+          </span>
+        </div>
+        <div class="blog-card__info">
+          <h5>THANK YOU FOR ORDERING WITH US, YOUR ORDER WILL ARRIVE SOON</h5>
+          <% @order.order_items.each do |order_item| %>
+              <h3><%= order_item.dish.name %></h3>
+            <% end %>
+          <p>
+            <a href="#" class="icon-link mr-3"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="icon-link"><i class="fab fa-linkedin-in"></i></a>
+          </p>
+          <p>We look forward to seeing you soon</p>
+          <%= link_to order_item_path(@order, from: "checkout"), method: :delete, class: "px-3 rounded btn btn-rare btn--with-icon" do %>
+          <i class="btn-icon fa fa-long-arrow-right"></i>HOME
+          <% end %>
+        </div>
+      </article>
+    </div>
   </div>
 </div>
 
-</section>
+<section class="detail-page">
+  <div class="container mt-5">
 
+  </div>
+</section>
