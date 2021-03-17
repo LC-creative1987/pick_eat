@@ -1,5 +1,5 @@
-
 <section>
+
 
 <div class="main-container d-flex justify-content-between">
   <div class="restaurants-wrapper">
@@ -20,25 +20,27 @@
                   <h2 style="color: white !important"><%= restaurant.name %></h2>
                 <% end %>
                 <p><%= restaurant.cuisine %></p>
+
+                </div>
+                <p class="card-trip-pricing"><i class="fas fa-map-marker-alt mr-1"></i><%= restaurant.show_distance%> km</p>
+                <span class="card-trip-user rating-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+
               </div>
-              <p class="card-trip-pricing"><i class="fas fa-map-marker-alt mr-1"></i><%= restaurant.show_distance%> km</p>
-              <span class="card-trip-user rating-stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <ikayla.crona@hamill-nitzsche.net class="fas fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-              </span>
             </div>
           </div>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div id="map"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-</div>
 
 </section>
 

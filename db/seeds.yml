@@ -177,7 +177,7 @@ ingredients:
     restaurant_slug: blue_sky_thai_food
     slug: rice
   - name: "Tomato"
-    unit: "tablespoon"
+    unit: "piece"
     change_increment: "1"
     cost: "2"
     price: "2"
