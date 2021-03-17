@@ -25,14 +25,14 @@
                 <p>Sorry, this ingredient is out of stock</p>
                 <% customized_ingredient.quantity = 0 %>
               <% else %>
-                <div class="w-25 border">
+                <div class="w-25">
                   <%= customized_ingredient.dish_ingredient.ingredient.change_increment %>
                   <%= customized_ingredient.dish_ingredient.ingredient.unit %>
 
                   (AED <%= customized_ingredient.dish_ingredient.ingredient.price %>)
                 </div>
 
-                <div class="quantity border text-center w-50" >
+                <div class="quantity text-center w-50">
                   <% if customized_ingredient.dish_ingredient.min_quantity <= customized_ingredient.dish_ingredient.ingredient.stock_quantity %>
                     <span class="mx-1">(min) <%= customized_ingredient.dish_ingredient.min_quantity %></span>
                   <% else %>
@@ -80,14 +80,14 @@
                 <p>Sorry, this ingredient is out of stock</p>
                 <% special_request.quantity = 0 %>
               <% else %>
-                <div>
+                <div class="w-25">
                   <%= special_request.ingredient.change_increment %>
                   <%= special_request.ingredient.unit %>
 
                   (AED <%= special_request.ingredient.price %>)
                 </div>
 
-                <div>
+                <div class="quantity text-center w-50">
                   <span class="mx-1">(min) <%= 0 %></span>
                   <%= link_to special_request_decrease_amount_path(special_request), method: :patch, remote: true, class: "btn item-button" do %>
                     <i class="fas fa-angle-double-down"></i>
@@ -121,8 +121,8 @@
       <% end %>
 
       <div class="d-flex justify-content-between">
-        <%= link_to "Add to order", order_path(@order_item.order), class: "btn orange-button"  %>
-        <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn purple-button" %>
+        <%= link_to "Add to order", order_path(@order_item.order), class: "btn orange-button my-1" %>
+        <%= link_to "back", order_item_path(@order_item, restaurant_id: "#{@order_item.dish.restaurant.id}"), method: :delete, class: "btn purple-button mb-1" %>
       </div>
     </div>
   </div>
