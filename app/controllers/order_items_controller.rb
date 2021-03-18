@@ -39,7 +39,7 @@ class OrderItemsController < ApplicationController
       @order.order_items.each do |order_item|
         order_item.destroy
       end
-      redirect_to restaurants_path
+      redirect_to root_path
     else
       @order_item = OrderItem.find(params[:id])
       @order_item.destroy
