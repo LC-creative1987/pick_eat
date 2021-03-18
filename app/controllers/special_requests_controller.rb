@@ -7,7 +7,11 @@ class SpecialRequestsController < ApplicationController
 
     @ingredient = Ingredient.find(params[:special_request][:ingredient])
     @special_request.ingredient = @ingredient
-    @special_request.quantity = @ingredient.change_increment
+    if @special_request.ingredient.stock_quantity < @special_request.ingredient.change_increment
+      @special_request.quantity = 0
+    else
+      @special_request.quantity = @ingredient.change_increment
+    end
     @special_request.save
     redirect_to order_item_path(@order_item, anchor: "special_request-#{@special_request.id}")
   end

@@ -19,10 +19,12 @@ class OrderItemsController < ApplicationController
     if @order_item.save
       # Create the customized ingredients
       @dish.dish_ingredients.each do |dish_ingredient|
+        condition = dish_ingredient.ingredient.stock_quantity < dish_ingredient.ingredient.change_increment
+        create_quantity = condition ? 0 : dish_ingredient.base_quantity
         CustomizedIngredient.create(
           order_item: @order_item,
           dish_ingredient: dish_ingredient,
-          quantity: dish_ingredient.base_quantity
+          quantity: create_quantity
         )
       end
       redirect_to order_item_path(@order_item)
