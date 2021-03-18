@@ -23,16 +23,19 @@
                       <%= link_to "Delete", order_item_path(order_item, from: "order"), method: :delete, class: "btn btn-secondary" %>
                     </div>
                   </div>
-                    <% order_item.customized_ingredients.each do |customized_ingredient| %>
-                    <li class="list-group-item">
-                      <%= customized_ingredient.dish_ingredient.ingredient.name %>
-                      (<%= customized_ingredient.quantity %>
-                      <%= customized_ingredient.dish_ingredient.ingredient.unit %>)
+                  <% order_item.customized_ingredients.each do |customized_ingredient| %>
+                    <% if customized_ingredient.dish_ingredient.ingredient.stock_quantity > customized_ingredient.dish_ingredient.ingredient.change_increment %>
+                      <li class="list-group-item">
 
-                      <% @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %>
+                        <%= customized_ingredient.dish_ingredient.ingredient.name %>
+                        (<%= customized_ingredient.quantity %>
+                        <%= customized_ingredient.dish_ingredient.ingredient.unit %>)
 
-                    </li>
-                    <% @added_dish_price += @ingredient_price %>
+                        <% @ingredient_price = (customized_ingredient.quantity/customized_ingredient.dish_ingredient.ingredient.change_increment) * customized_ingredient.dish_ingredient.ingredient.price %>
+
+                      </li>
+                      <% @added_dish_price += @ingredient_price %>
+                    <% end %>
                   <% end %>
                   <% order_item.special_requests.each do |special_request| %>
                   <li class="list-group-item">
